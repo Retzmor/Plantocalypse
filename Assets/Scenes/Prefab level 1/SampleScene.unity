@@ -1631,9 +1631,9 @@ Tilemap:
       e02: 0
       e03: 0.38238907
       e10: 0
-      e11: 1
+      e11: 1.6499997
       e12: 0
-      e13: -0.042612076
+      e13: -0.3615818
       e20: 0
       e21: 0
       e22: 1
@@ -8651,7 +8651,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3517255323334679819, guid: d8f6a28afafcd0d45ab1772accc933a3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.08
+      value: -7.67
       objectReference: {fileID: 0}
     - target: {fileID: 3517255323334679819, guid: d8f6a28afafcd0d45ab1772accc933a3, type: 3}
       propertyPath: m_LocalPosition.y
