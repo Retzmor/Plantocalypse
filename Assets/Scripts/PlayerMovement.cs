@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float movX = 0;
     [SerializeField] float movY = 0;
     [SerializeField] float velocityPlayer;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,5 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(movX, movY) * velocityPlayer;
+
+
     }
 }
