@@ -37,7 +37,7 @@ public class GameAdministrator : MonoBehaviour
 
     public void GameStart(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene("ScenaTutorial");
         Time.timeScale = 1;
     }
 

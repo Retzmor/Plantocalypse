@@ -6,16 +6,20 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     Rigidbody2D rigid;
+    Animator murshroom;
     [SerializeField] int velocityEnemy = 2;
     [SerializeField] float VelocityEnemyFollow = 2.5f;
     [SerializeField] bool ubication;
     [SerializeField] bool activation = false;
+    [SerializeField] float movement;
+    [SerializeField] bool idle;
     [SerializeField] Transform player;
     public bool follow;
 
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        murshroom = GetComponent<Animator>();
        
         
     }
@@ -24,37 +28,19 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
 
-
-        if (rigid.position.x > 1 && ubication == false)
-        {
-            
-            rigid.velocity = new Vector2(-velocityEnemy, 0);
-            if (rigid.position.x <= 2)
-            {
-                Debug.Log("Ubicacion verdader");
-                ubication = true;
-
-            }
-        }
-
-        else if (ubication == true)
-        {
-            Debug.Log("Me estoy moviendo a la derecha");
-            rigid.velocity = new Vector2(velocityEnemy, 0);
-            if (rigid.position.x >= 13)
-            {
-                Debug.Log("Ubicacion falsa");
-                ubication = false;
-
-            }
-        }
+       
 
         if (follow && player != null)
         {
             velocityEnemy = 0;
             transform.position = Vector2.MoveTowards(transform.position, player.position,VelocityEnemyFollow * Time.deltaTime);
         }
-        
+
+        murshroom.SetFloat("Velocidad", movement);
+    }
+
+    private void FixedUpdate()
+    {
         
     }
 
@@ -63,6 +49,12 @@ public class EnemyMovement : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             follow = true;
+            if (follow == true)
+            {
+                idle = true;
+                movement = 2;
+                murshroom.SetBool("Movimiento", idle);
+            }
         }
         
     }
@@ -71,10 +63,12 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-
+            idle = false;
+            movement = 0;
             velocityEnemy = 4;
             follow = false;
-            
+            murshroom.SetBool("Movimiento", idle);
+
         }
     }
 
