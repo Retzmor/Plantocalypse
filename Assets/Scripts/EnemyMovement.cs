@@ -32,8 +32,9 @@ public class EnemyMovement : MonoBehaviour
 
         if (follow && player != null)
         {
-            velocityEnemy = 0;
+            velocityEnemy = 3;
             transform.position = Vector2.MoveTowards(transform.position, player.position,VelocityEnemyFollow * Time.deltaTime);
+            Debug.Log("Estoy en el if");
         }
 
         murshroom.SetFloat("Velocidad", movement);
@@ -54,6 +55,8 @@ public class EnemyMovement : MonoBehaviour
                 idle = true;
                 movement = 2;
                 murshroom.SetBool("Movimiento", idle);
+
+                Debug.Log("Estoy en la colider");
             }
         }
         
