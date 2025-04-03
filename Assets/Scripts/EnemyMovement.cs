@@ -6,8 +6,8 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     Rigidbody2D rigid;
-    [SerializeField] int velocityEnemy = 4;
-    [SerializeField] float VelocityEnemyFollow = 2;
+    [SerializeField] int velocityEnemy = 2;
+    [SerializeField] float VelocityEnemyFollow = 2.5f;
     [SerializeField] bool ubication;
     [SerializeField] bool activation = false;
     [SerializeField] Transform player;
@@ -71,6 +71,8 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+
+            velocityEnemy = 4;
             follow = false;
             
         }
