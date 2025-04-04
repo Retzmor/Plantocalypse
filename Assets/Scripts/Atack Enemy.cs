@@ -24,16 +24,23 @@ public class AtackEnemy : MonoBehaviour
     {
 
     }
+     public void Attaking()
+     {
+       
+
+     }
+
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerMovement>().RecibirDaño(damage);
+        }
+    }
 
    
-
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-            if (other.CompareTag("Player"))
-            {
-            other.GetComponent<PlayerMovement>().RecibirDaño(damage);
-            }       
-    }
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
