@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance { get; private set; }
+    public static AudioManager Instance { get; private set; }
 
     [SerializeField] AudioSource soundEffects;
     [SerializeField] AudioSource music;
 
     void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
         else
@@ -35,8 +33,13 @@ public class AudioManager : MonoBehaviour
         music.loop = true;
     }
 
-    public void VolumeMusic(float newVolume)
+    public void MusicVolume(float newVolume)
     {
         music.volume = newVolume;
+    }
+
+    public void SFXVolume(float newVolume)
+    {
+        soundEffects.volume = newVolume;
     }
 }

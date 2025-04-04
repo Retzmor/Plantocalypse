@@ -9,16 +9,16 @@ public class PanelController : MonoBehaviour
     // Start is called before the first frame update
     private void OnEnable()
     {
-        GameAdministrator.instance.mainMenu += ShowMainPanel;
-        GameAdministrator.instance.optionsMenu += ShowOptionsPanel;
-        GameAdministrator.instance.creditsMenu += ShowCreditsPanel;
+        GameAdministrator.Instance.mainMenu += ShowMainPanel;
+        GameAdministrator.Instance.optionsMenu += ShowOptionsPanel;
+        GameAdministrator.Instance.creditsMenu += ShowCreditsPanel;
     }
 
     private void OnDisable()
     {
-        GameAdministrator.instance.mainMenu -= ShowMainPanel;
-        GameAdministrator.instance.optionsMenu -= ShowOptionsPanel;
-        GameAdministrator.instance.creditsMenu -= ShowCreditsPanel;
+        GameAdministrator.Instance.mainMenu -= ShowMainPanel;
+        GameAdministrator.Instance.optionsMenu -= ShowOptionsPanel;
+        GameAdministrator.Instance.creditsMenu -= ShowCreditsPanel;
     }
 
     public void ShowMainPanel()

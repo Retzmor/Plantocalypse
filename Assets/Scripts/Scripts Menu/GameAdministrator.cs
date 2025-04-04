@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameAdministrator : MonoBehaviour
 {
 
-    public static GameAdministrator instance;
+    public static GameAdministrator Instance;
     public delegate void LegacyGameState();
     public LegacyGameState optionsMenu;
     public LegacyGameState creditsMenu;
@@ -15,9 +15,9 @@ public class GameAdministrator : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {
