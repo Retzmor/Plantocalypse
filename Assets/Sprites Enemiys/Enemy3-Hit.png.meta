@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5d996833d144491428e808498a01fa27
+guid: db329c2941b140e4782593829867eee9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,106 +97,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mushroom-Hit_0
+      name: Enemy3-Hit_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 80
+        width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5094062, y: 0.1261023}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7afabb1f0fb19145a4413810aeb10d0
-      internalID: -1491829985
+      spriteID: 0cf117bb87a5cab44992ef75cf0b9649
+      internalID: 43878048
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom-Hit_1
+      name: Enemy3-Hit_1
       rect:
         serializedVersion: 2
-        x: 80
+        x: 65
         y: 0
-        width: 80
+        width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.17078194}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 607f6539ed56a4543b6909d648e999a1
-      internalID: -1027605373
+      spriteID: a5113ef19ed4cb34898793b87260b66d
+      internalID: -775065252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom-Hit_2
+      name: Enemy3-Hit_2
       rect:
         serializedVersion: 2
-        x: 160
+        x: 128
         y: 0
-        width: 80
+        width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5164609, y: 0.1519695}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cef65a8f70abb1e40846510de14d3a46
-      internalID: -1709286611
+      spriteID: 7ffcff4a27fb39b498a25dc8f8b27272
+      internalID: -1118010957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom-Hit_3
+      name: Enemy3-Hit_3
       rect:
         serializedVersion: 2
-        x: 240
+        x: 192
         y: 0
-        width: 80
+        width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.4670782, y: 0.1308055}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a02ce033fe8dc64c8876c096e130205
-      internalID: 131258148
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mushroom-Hit_4
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 80
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d2b65b73ef271a04ca3e20c67c66b0ab
-      internalID: -1161690884
+      spriteID: e7b27d3c3755e7b418cf71c42d222074
+      internalID: 1044181250
       vertices: []
       indices: 
       edges: []
@@ -212,11 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mushroom-Hit_0: -1491829985
-      Mushroom-Hit_1: -1027605373
-      Mushroom-Hit_2: -1709286611
-      Mushroom-Hit_3: 131258148
-      Mushroom-Hit_4: -1161690884
+      Enemy3-Hit_0: 43878048
+      Enemy3-Hit_1: -775065252
+      Enemy3-Hit_2: -1118010957
+      Enemy3-Hit_3: 1044181250
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
