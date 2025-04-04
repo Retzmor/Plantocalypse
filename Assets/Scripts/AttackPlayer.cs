@@ -8,6 +8,7 @@ public class AttackPlayer : MonoBehaviour
     [SerializeField] Transform playerPosition;
     [SerializeField] float radius;
     public LayerMask zoneAttack;
+    
     void Start()
     {
         
