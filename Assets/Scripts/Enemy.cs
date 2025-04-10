@@ -47,10 +47,14 @@ public class Enemy : MonoBehaviour
 
     public void Death()
     {
-
+        this.enabled = false;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         live = false;
         mushRoom.SetBool("Vida", live);
-      
+       
+       
+
     }
     public void DestroyCharacter()
     {

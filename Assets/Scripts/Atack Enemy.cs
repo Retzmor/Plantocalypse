@@ -9,39 +9,40 @@ public class AtackEnemy : MonoBehaviour
     public int damage = 10;
     [SerializeField] Transform enemyPosition;
     [SerializeField] float radius;
-    
-    
-    
+    public float tiempoEntreAtaques = 1.0f;
+    float tiempoProximoAtaque = 0f;
+
+
+
 
     void Start()
     {
         mushroom = GetComponent<Animator>();
-        
-    }
-
-
-    void Update()
-    {
 
     }
-     public void Attaking()
-     {
-       
 
-     }
+
+
 
 
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && Time.time >= tiempoProximoAtaque)
         {
             mushroom.SetTrigger("attack");
-            collision.gameObject.GetComponent<PlayerMovement>().RecibirDaño(damage);
+
+            PlayerMovement jugador = collision.gameObject.GetComponent<PlayerMovement>();
+            if (jugador != null)
+            {
+                jugador.RecibirDaño(damage);
+            }
+
+            tiempoProximoAtaque = Time.time + tiempoEntreAtaques;
         }
     }
 
-   
+
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
