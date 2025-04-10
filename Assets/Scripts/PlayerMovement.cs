@@ -6,16 +6,17 @@ using static UnityEngine.Rendering.DebugUI;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
-    public int currenHealthPlayer;
-    public int health = 100;
+    public float currenHealthPlayer;
+    public float health = 100;
     [SerializeField] float movX = 0;
     [SerializeField] float movY = 0;
     [SerializeField] float velocityPlayer;
-
+    [SerializeField] BarraVIda barraVida;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currenHealthPlayer = health;
+        barraVida.InicializarBarraVida(currenHealthPlayer);
     }
 
     // Update is called once per frame
@@ -34,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void RecibirDaño(int damage)
     {
+        barraVida.CambiarVidaActual(currenHealthPlayer);
         currenHealthPlayer -= damage; 
         Debug.Log("El jugador recibió " + damage + " de daño. Salud restante: " + currenHealthPlayer);
 
