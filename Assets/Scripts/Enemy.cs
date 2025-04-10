@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] int health = 50;
     Animator mushRoom;
     [SerializeField] bool takeDamage;
-    [SerializeField] bool movement;
+    [SerializeField] bool movement = true;
     [SerializeField] bool live = true;
     public float currentHealth;
 
@@ -28,10 +28,12 @@ public class Enemy : MonoBehaviour
 
     public void DamageTake(int newDamage)
     {
-      
+        Debug.Log("ME pegaron ome0");
         currentHealth -= newDamage;
         takeDamage = true;
         mushRoom.SetTrigger("Damage");
+       
+        
            
         if (currentHealth <= 0)
         {
