@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerMovement : MonoBehaviour
@@ -16,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         currenHealthPlayer = health;
-        barraVida.InicializarBarraVida(currenHealthPlayer);
     }
 
     // Update is called once per frame
@@ -36,9 +36,17 @@ public class PlayerMovement : MonoBehaviour
     public void RecibirDaño(int damage)
     {
         barraVida.CambiarVidaActual(currenHealthPlayer);
-        currenHealthPlayer -= damage; 
+        currenHealthPlayer -= damage;
         Debug.Log("El jugador recibió " + damage + " de daño. Salud restante: " + currenHealthPlayer);
+        if (currenHealthPlayer <= 0)
+        {
+            Muerte("GameOver");
+        }
+    }
 
+    private void Muerte(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 
 }

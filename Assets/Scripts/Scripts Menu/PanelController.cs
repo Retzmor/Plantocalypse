@@ -5,13 +5,14 @@ using UnityEngine;
 public class PanelController : MonoBehaviour
 {
 
-    [SerializeField] GameObject mainMenuPanel, optionsPanel, creditsPanel;
+    [SerializeField] GameObject mainMenuPanel, optionsPanel, creditsPanel, gameOverPanel;
     // Start is called before the first frame update
     private void OnEnable()
     {
         GameAdministrator.Instance.mainMenu += ShowMainPanel;
         GameAdministrator.Instance.optionsMenu += ShowOptionsPanel;
         GameAdministrator.Instance.creditsMenu += ShowCreditsPanel;
+        GameAdministrator.Instance.gameOverMenu += ShowGameOverPanel;
     }
 
     private void OnDisable()
@@ -19,6 +20,7 @@ public class PanelController : MonoBehaviour
         GameAdministrator.Instance.mainMenu -= ShowMainPanel;
         GameAdministrator.Instance.optionsMenu -= ShowOptionsPanel;
         GameAdministrator.Instance.creditsMenu -= ShowCreditsPanel;
+        GameAdministrator.Instance.gameOverMenu -= ShowGameOverPanel;
     }
 
     public void ShowMainPanel()
@@ -26,6 +28,7 @@ public class PanelController : MonoBehaviour
         mainMenuPanel.SetActive(true);
         optionsPanel.SetActive(false);
         creditsPanel.SetActive(false);
+        gameOverPanel.SetActive(false);
     }
 
     public void ShowOptionsPanel()
@@ -33,6 +36,7 @@ public class PanelController : MonoBehaviour
         mainMenuPanel.SetActive(false);
         optionsPanel.SetActive(true);
         creditsPanel.SetActive(false);
+        gameOverPanel.SetActive(false);
     }
 
     public void ShowCreditsPanel()
@@ -40,5 +44,14 @@ public class PanelController : MonoBehaviour
         mainMenuPanel.SetActive(false);
         optionsPanel.SetActive(false);
         creditsPanel.SetActive(true);
+        gameOverPanel.SetActive(false);
+    }
+
+    public void ShowGameOverPanel()
+    {
+        mainMenuPanel.SetActive(false);
+        optionsPanel.SetActive(false);
+        creditsPanel.SetActive(false);
+        gameOverPanel.SetActive(true);
     }
 }

@@ -128,7 +128,7 @@ MonoBehaviour:
   activation: 0
   movement: 0
   idle: 0
-  player: {fileID: 0}
+  player: {fileID: 3517255323334679819, guid: 4b84772b1033deb4d81d6c903bc5ad53, type: 3}
   follow: 0
 --- !u!50 &2646180127007778838
 Rigidbody2D:

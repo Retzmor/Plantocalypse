@@ -125,6 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3521de09e3c54004fa339d52a2d0e556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currenHealthPlayer: 0
+  health: 100
   movX: 0
   movY: 0
   velocityPlayer: 2
+  barraVida: {fileID: 0}
