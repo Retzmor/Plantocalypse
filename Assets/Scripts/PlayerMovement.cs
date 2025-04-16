@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     {
         barraVida.CambiarVidaActual(currenHealthPlayer);
         currenHealthPlayer -= damage;
-        Debug.Log("El jugador recibió " + damage + " de daño. Salud restante: " + currenHealthPlayer);
+        
         if (currenHealthPlayer <= 0)
         {
             Muerte("GameOver");

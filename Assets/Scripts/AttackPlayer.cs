@@ -19,6 +19,7 @@ public class AttackPlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P)) 
         {
+            Debug.Log("Estoy golpeando");
             Attack();
         }
     }
@@ -29,6 +30,7 @@ public class AttackPlayer : MonoBehaviour
 
         for (int i = 0; i < attacking.Length; i++)
         {
+            Debug.Log("Estoy en el for");
             attacking[i].GetComponent<Enemy>().DamageTake(damage);
         }
     }
