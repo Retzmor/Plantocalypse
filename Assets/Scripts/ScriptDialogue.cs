@@ -21,7 +21,7 @@ public class ScriptDialogue : MonoBehaviour
     void Start()
     {
         StartCoroutine(StartWithDelay());
-        
+          
     }
 
     // Update is called once per frame
@@ -35,6 +35,7 @@ public class ScriptDialogue : MonoBehaviour
             }
             else
             {
+                
                 StopAllCoroutines();
                 text.text = dialogues[numberText];
             }
@@ -66,6 +67,12 @@ public class ScriptDialogue : MonoBehaviour
             numberText++;
             text.text = string.Empty;
             StartCoroutine(LineOfText());
+        }
+
+        else
+        {
+            cameraFocus.FocusEnemyThenReturn();
+            DesactiveUI();
         }
         
     }
