@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bfcd2aacd897e5d459462dae9bed7417
+guid: b5d3677cf8049844dae0ee770480bafe
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,11 +93,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Granjero-Iddle_0
+      name: SpirteSheetElGranjeroFrontalIdel_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6750e3f87c354114fbee0c74abb3e119
-      internalID: 1913526184
+      spriteID: 7a4ade77486e75449a372d600e5bf16c
+      internalID: 636261234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Granjero-Iddle_1
+      name: SpirteSheetElGranjeroFrontalIdel_1
       rect:
         serializedVersion: 2
         x: 64
@@ -132,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f792643685998346bb4be8c01feaefd
-      internalID: -1608475066
+      spriteID: 1afdc5b3ea02baf45a74b562e2421639
+      internalID: -838125004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Granjero-Iddle_2
+      name: SpirteSheetElGranjeroFrontalIdel_2
       rect:
         serializedVersion: 2
         x: 128
@@ -153,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd865d1c8041166478d124ae4e03371c
-      internalID: 667240534
+      spriteID: 71a551a00912f8c4ba33116c11a0c8dd
+      internalID: -774615339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Granjero-Iddle_3
+      name: SpirteSheetElGranjeroFrontalIdel_3
       rect:
         serializedVersion: 2
         x: 0
@@ -174,29 +187,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2583bdacf97f9f74a89be926e8f6a9b7
-      internalID: 1738016753
+      spriteID: 670c813187e342c4fa9f723106f380ad
+      internalID: -110497011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Granjero-Iddle_4
+      name: SpirteSheetElGranjeroFrontalIdel_4
       rect:
         serializedVersion: 2
-        x: 64
+        x: 65
         y: 0
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ed62e3052eb86b43bdafa2b33b15654
-      internalID: 90315457
+      spriteID: 51e633be3c9da4f409fa8ae858aa7a70
+      internalID: -995367945
       vertices: []
       indices: 
       edges: []
@@ -212,11 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Granjero-Iddle_0: 1913526184
-      Granjero-Iddle_1: -1608475066
-      Granjero-Iddle_2: 667240534
-      Granjero-Iddle_3: 1738016753
-      Granjero-Iddle_4: 90315457
+      SpirteSheetElGranjeroFrontalIdel_0: 636261234
+      SpirteSheetElGranjeroFrontalIdel_1: -838125004
+      SpirteSheetElGranjeroFrontalIdel_2: -774615339
+      SpirteSheetElGranjeroFrontalIdel_3: -110497011
+      SpirteSheetElGranjeroFrontalIdel_4: -995367945
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
