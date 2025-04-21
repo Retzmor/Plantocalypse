@@ -2962,8 +2962,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 612489848}
   dialogues:
-  - "Hola. No hay tiempo para explicar qui\xE9n soy, pero... s\xED, soy t\xFA.\","
-  - "Del futuro. Un futuro que est\xE1 a punto de desaparecer."
+  - "\"Hola. No hay tiempo para explicar qui\xE9n soy, pero... s\xED, soy t\xFA.\","
+  - "\"Del futuro. Un futuro que est\xE1 a punto de desaparecer.\""
   - "\"Las plantas lo han consumido todo. No como las conoc\xEDas.\""
   - '"Ya no dan vida... la devoran.",'
   - "\"Y ahora, t\xFA eres la \xFAltima semilla de esperanza.\""
@@ -2971,7 +2971,7 @@ MonoBehaviour:
   - '"Debes moverte con las teclas W, A, S y D."'
   - '"Para atacar, presiona P. Golpea antes de que te atrapen."'
   - '"Sobrevive. Aprende. Y cuando llegue el momento... siembra lo correcto."'
-  - ' "Buena suerte, Alejandros."'
+  - ' "Buena suerte."'
   velocityText: 0.1
   dialoguePanel: {fileID: 588680367}
   skipButton: {fileID: 2046164038}

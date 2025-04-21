@@ -22,13 +22,7 @@ public class AtackEnemy : MonoBehaviour
     }
 
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player") && Time.time >= tiempoEntreAtaques)
-        {
-            mushroom.SetTrigger("attack");
-        }
-    }
+  
 
 
 
@@ -36,7 +30,7 @@ public class AtackEnemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && Time.time >= tiempoProximoAtaque)
         {
-            //    mushroom.SetTrigger("attack");
+                mushroom.SetTrigger("attack");
 
             PlayerMovement jugador = collision.gameObject.GetComponent<PlayerMovement>();
             if (jugador != null)
