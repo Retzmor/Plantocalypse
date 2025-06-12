@@ -28,16 +28,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(movX, movY) * velocityPlayer;
+        rb.linearVelocity = new Vector2(movX, movY) * velocityPlayer;
 
 
     }
 
-    public void RecibirDaño(int damage)
+    public void RecibirDaÃ±o(int damage)
     {
         barraVida.CambiarVidaActual(currenHealthPlayer);
         currenHealthPlayer -= damage;
-        Debug.Log("El jugador recibió " + damage + " de daño. Salud restante: " + currenHealthPlayer);
+        Debug.Log("El jugador recibiï¿½ " + damage + " de daï¿½o. Salud restante: " + currenHealthPlayer);
         if (currenHealthPlayer <= 0)
         {
             Muerte("GameOver");
