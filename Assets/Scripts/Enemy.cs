@@ -6,8 +6,10 @@ using UnityEngine.Video;
 
 public class Enemy : MonoBehaviour
 {
+    Rigidbody body;
     [SerializeField] int health = 50;
     Animator mushRoom;
+    EnemyMovement enemyMovement;
     [SerializeField] bool takeDamage;
     [SerializeField] bool movement = true;
     [SerializeField] bool live = true;
@@ -16,6 +18,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         mushRoom = GetComponent<Animator>();
+        enemyMovement = GetComponent<EnemyMovement>();
         currentHealth = health;
 
     }
@@ -28,18 +31,13 @@ public class Enemy : MonoBehaviour
 
     public void DamageTake(int newDamage)
     {
-        Debug.Log("ME pegaron ome0");
         currentHealth -= newDamage;
         takeDamage = true;
         mushRoom.SetTrigger("Damage");
-       
         
-           
         if (currentHealth <= 0)
-        {
-            
-            Death();
-            
+        { 
+            Death();   
         }
     }
 
@@ -47,14 +45,10 @@ public class Enemy : MonoBehaviour
 
     public void Death()
     {
+        enemyMovement.movement = 0;
         this.enabled = false;
-        GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
-        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         live = false;
         mushRoom.SetBool("Vida", live);
-       
-       
-
     }
     public void DestroyCharacter()
     {
