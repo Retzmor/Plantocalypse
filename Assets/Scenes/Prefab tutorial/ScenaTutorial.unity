@@ -18816,6 +18816,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -995367945, guid: 110edc2196b4b524ea9e9dcaa70cff1c, type: 3}
+    - target: {fileID: 7720317179042198931, guid: 2a835be37807e5a4db338f21f98cdc0e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7784774971519138024, guid: 2a835be37807e5a4db338f21f98cdc0e, type: 3}
       propertyPath: barraVida
       value: 
