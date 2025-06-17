@@ -13,7 +13,7 @@ public class GameAdministrator : MonoBehaviour
     public LegacyGameState creditsMenu;
     public LegacyGameState mainMenu;
     public LegacyGameState gameOverMenu;
-    private string currentStage = "ScenaTutorial";
+    private string currentStage = "Intro";
     // Start is called before the first frame update
 
     private void Awake()
@@ -40,7 +40,7 @@ public class GameAdministrator : MonoBehaviour
 
     public void GameStart(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene("Intro");
         Time.timeScale = 1;
         currentStage = sceneName;
         Debug.Log("Escenario: " + currentStage);
