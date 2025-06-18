@@ -31,7 +31,7 @@ public class AttackPlayer : MonoBehaviour
         for (int i = 0; i < attacking.Length; i++)
         {
             Debug.Log("Estoy en el for");
-            attacking[i].GetComponent<Enemy>().DamageTake(damage);
+            //attacking[i].GetComponent<Enemy>().DamageTake(damage);
         }
     }
 
