@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CuadroInteraccion1Unity_0: -4311455719764195881
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
