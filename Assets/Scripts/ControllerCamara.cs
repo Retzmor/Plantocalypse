@@ -19,8 +19,6 @@ public class ControllerCamara : MonoBehaviour
         CamEnemy.Priority = 12;
 
         yield return new WaitForSeconds(4f);
-
-        Debug.Log("enfoca caremonda");
         CamPlayer.Priority = 12;
         CamEnemy.Priority = 10;
     }
