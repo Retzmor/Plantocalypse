@@ -52,8 +52,15 @@ public class HidraEnemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Estoy en el istrigger");
-            _animator.SetTrigger("Atacar");
+            _animator.SetBool("Atacar", true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            _animator.SetBool("Atacar", false);
         }
     }
 
