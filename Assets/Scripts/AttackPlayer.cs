@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackPlayer : MonoBehaviour
 {
-    public int damage = 30;
+    public int damage = 5;
     [SerializeField] Transform playerPosition;
     [SerializeField] float radius;
     public LayerMask zoneAttack;
@@ -19,7 +19,6 @@ public class AttackPlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P)) 
         {
-            Debug.Log("Estoy golpeando");
             Attack();
         }
     }
@@ -30,10 +29,7 @@ public class AttackPlayer : MonoBehaviour
 
         for (int i = 0; i < attacking.Length; i++)
         {
-            Debug.Log("Estoy en el for");
-            attacking[i].GetComponent<HidraEnemy>();
-            
-            
+            attacking[i].GetComponent<HidraEnemy>().TakeDamage(damage);
         }
     }
 
