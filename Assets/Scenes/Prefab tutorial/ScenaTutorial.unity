@@ -4967,6 +4967,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _speed: 2
+  attackCooldown: 0.5
 --- !u!58 &762033342
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -20309,7 +20310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5832908998326563891, guid: 2a835be37807e5a4db338f21f98cdc0e, type: 3}
       propertyPath: zoneAttack.m_Bits
-      value: 0
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 7720317179042198931, guid: 2a835be37807e5a4db338f21f98cdc0e, type: 3}
       propertyPath: m_Sprite
