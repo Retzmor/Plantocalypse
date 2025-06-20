@@ -40,12 +40,12 @@ public class HidraEnemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int dmg)
+    public void TakeDamage(int damage)
     {
-        CurrentHealth -= dmg;
-        _animator.SetTrigger("Hurt");          
+        CurrentHealth -= damage;
+        _animator.SetTrigger("Recibirdaño");          
         if (CurrentHealth <= 0)
-        _animator.SetTrigger("Die");       
+        _animator.SetTrigger("Muerte");       
     }
 
     private void OnTriggerStay2D(Collider2D collision)
