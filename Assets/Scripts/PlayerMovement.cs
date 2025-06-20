@@ -8,15 +8,18 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
     public float currenHealthPlayer;
-    public float health = 100;
+    private float health = 100;
     [SerializeField] float movX = 0;
     [SerializeField] float movY = 0;
     [SerializeField] float velocityPlayer;
     [SerializeField] BarraVIda barraVida;
+
+    public float Health { get => health; set => health = value; }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        currenHealthPlayer = health;
+        currenHealthPlayer = Health;
     }
 
     // Update is called once per frame
@@ -29,8 +32,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(movX, movY) * velocityPlayer;
-
-
     }
 
     public void RecibirDaño(int damage)
