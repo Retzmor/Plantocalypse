@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 878491a17844dcb4bb48e606291e1dfd
+guid: dac1a34e9c504b64b9368292bbc5a0ea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1556341381189429379
-    second: PlantaCarniviraAAA_0
+      213: -8865864827335459838
+    second: tecla A_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,10 +72,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlantaCarniviraAAA_0
+      name: tecla A_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 748
-        height: 1114
+        x: 411
+        y: 436
+        width: 1234
+        height: 1184
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 38869078d3c399510800000000000000
-      internalID: 1556341381189429379
+      spriteID: 20c3a04b9ee16f480800000000000000
+      internalID: -8865864827335459838
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      PlantaCarniviraAAA_0: 1556341381189429379
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
