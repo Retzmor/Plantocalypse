@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
+    [SerializeField] GameObject panelFelicidades;
     [SerializeField] private ScriptDialogue dialogueManager;
     [SerializeField] private CameraManager cameraManager;
     [SerializeField] private GameObject enemigo1;
@@ -54,6 +55,7 @@ public class TutorialManager : MonoBehaviour
 
         if (enemigosDerrotados == 4)
         {
+    
             string[] final = {
                 "¡Has completado el tutorial!",                                 //este es el ultimo
                 "Estás listo para la batalla."
@@ -63,7 +65,7 @@ public class TutorialManager : MonoBehaviour
 
             dialogueManager.OnDialogueEnd = () =>
             {
-                SceneManager.LoadScene("Nivel1");
+                panelFelicidades.gameObject.SetActive(true);
             };
         }
     }
