@@ -10,11 +10,17 @@ public class HidraEnemy : MonoBehaviour
     [SerializeField] float radiusAttack;
     [SerializeField] LayerMask layerMask;
     [SerializeField] private float _speed;
+    [SerializeField] private ScriptDialogue dialogue;
+    [SerializeField] private GameObject enemigo1;
+    [SerializeField] private GameObject enemigo2;
+    [SerializeField] private TutorialManager tutorialManager;
     Rigidbody2D _rb;
     Animator _animator;
     private float health = 100;
     private int damage = 10;
     private float currentHealth = 100;
+    private bool enemigoMuerto = false;
+    private bool dialogoMostrado = false;
     [SerializeField] private float attackCooldown = 0.5f;
     private float enfriamientoAtaque = -Mathf.Infinity;     
 
@@ -43,6 +49,11 @@ public class HidraEnemy : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        
+    }
+
     public void TakeDamage(int damage)
     {
         CurrentHealth -= damage;
@@ -52,6 +63,7 @@ public class HidraEnemy : MonoBehaviour
         {
             _animator.SetBool("Muerte", true);
             _animator.SetBool("Atacar", false);
+            tutorialManager.EnemigoDerrotado();
         }
     }
 
@@ -82,6 +94,14 @@ public class HidraEnemy : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, radius);
+    }
+
+ 
+
+    public void ActivarEnemigosFase2()
+    {
+        enemigo1.SetActive(true);
+        enemigo2.SetActive(true);
     }
 }
 

@@ -7,12 +7,12 @@ using Cinemachine;
 public class ScriptDialogue : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
-    [SerializeField] string[] dialogues;
     [SerializeField] float velocityText = 0.1f;
     private bool wasSkipped = false;
+    private string[] dialogues;
     [SerializeField] GameObject dialoguePanel;
     [SerializeField] GameObject skipButton;
-    [SerializeField] ControllerCamara cameraFocus;
+    public System.Action OnDialogueEnd;
     
 
 
@@ -20,8 +20,7 @@ public class ScriptDialogue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(StartWithDelay());
-          
+      
     }
 
     // Update is called once per frame
@@ -43,12 +42,6 @@ public class ScriptDialogue : MonoBehaviour
         
     }
 
-    private void Interactions() 
-    { 
-    
-        numberText = 0;
-        StartCoroutine(LineOfText());
-    }
 
     IEnumerator LineOfText()
     {
@@ -71,19 +64,11 @@ public class ScriptDialogue : MonoBehaviour
 
         else
         {
-            cameraFocus.FocusEnemyThenReturn();
+            
             DesactiveUI();
         }
         
     }
-
-    IEnumerator StartWithDelay()
-    {
-        yield return new WaitForSeconds(1f); 
-        Interactions(); 
-    }
-
-    
 
     public void SkipDialogue()
     {
@@ -93,13 +78,23 @@ public class ScriptDialogue : MonoBehaviour
         StopAllCoroutines(); 
         text.text = "";
         DesactiveUI();
-        cameraFocus.FocusEnemyThenReturn();
-        
     }
 
     private void DesactiveUI()
     {
         dialoguePanel.SetActive(false);
         skipButton.SetActive(false);
+        OnDialogueEnd?.Invoke();
+    }
+
+    public void SetDialogue(string[] newDialogues)
+    {
+        dialogues = newDialogues;
+        numberText = 0;
+        text.text = string.Empty;
+        dialoguePanel.SetActive(true);
+        skipButton.SetActive(true);
+        wasSkipped = false;
+        StartCoroutine(LineOfText());
     }
 }

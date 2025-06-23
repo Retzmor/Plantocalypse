@@ -4,50 +4,55 @@ using UnityEngine;
 
 public class RandomGeneration : MonoBehaviour
 {
-    [SerializeField] private GameObject Enemy;
-    [SerializeField] private float minSpawnTime;
-    [SerializeField] private float maxSpawnTime;
-    //[SerializeField] private float spawnRangeX;
-    //[SerializeField] private float spawnRangeY;
-    [SerializeField] private int enemyLimit;
-    public Transform positionDetect;
-    public Vector2 sizeDetect;
+    public GameObject enemyPrefab;
+    public int enemyLimit = 4;
+    public float alturaArea = 5f;
+    public float anchoArea = 5f;
+    public float minSpawnTime = 1f;
+    public float maxSpawnTime = 3f;
+
     private float remainingTime;
-    private int enemyCount;
+    private int currentEnemyCount = 0;
 
-
-
-
-
-    // Start is called before the first frame update
-    void Awake()
+    private void Start()
     {
-        SetRemainingTime();
+        SetNextSpawnTime();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        float posXSpawn = Random.Range(-sizeDetect.x, sizeDetect.x);
-        float posYSpawn = Random.Range(-sizeDetect.y, sizeDetect.y);
-        Vector2 randomPosition = new Vector2(posXSpawn, posYSpawn);
-        remainingTime -= Time.deltaTime;
+        if (currentEnemyCount >= enemyLimit) return;
 
-        if (remainingTime <= 0 && enemyCount < enemyLimit)
+        remainingTime -= Time.deltaTime;
+        if (remainingTime <= 0f)
         {
-            Instantiate(Enemy, randomPosition, Enemy.transform.rotation);
-            SetRemainingTime();
-            enemyCount++;
+            SpawnEnemy();
+            SetNextSpawnTime();
         }
     }
 
-    private void SetRemainingTime()
+    private void SpawnEnemy()
+    {
+        Vector2 spawnPosition = GetRandomPointInArea();
+        Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        currentEnemyCount++;
+    }
+
+    private Vector2 GetRandomPointInArea()
+    {
+        float x = Random.Range(-alturaArea / 2f, alturaArea / 2f);
+        float y = Random.Range(-anchoArea / 2f, anchoArea / 2f);
+        return (Vector2)transform.position + new Vector2(x, y);
+    }
+
+    private void SetNextSpawnTime()
     {
         remainingTime = Random.Range(minSpawnTime, maxSpawnTime);
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(positionDetect.position, sizeDetect);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(transform.position, new Vector3(anchoArea, alturaArea, 0));
     }
 }
