@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      HongoALUCIN_0: 4323137365663323320
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

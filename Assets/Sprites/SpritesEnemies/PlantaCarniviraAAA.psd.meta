@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PlantaCarniviraAAA_0: 1556341381189429379
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
