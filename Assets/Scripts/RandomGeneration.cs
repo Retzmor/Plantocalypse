@@ -5,11 +5,11 @@ using UnityEngine;
 public class RandomGeneration : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public int enemyLimit = 4;
-    public float alturaArea = 5f;
-    public float anchoArea = 5f;
-    public float minSpawnTime = 1f;
-    public float maxSpawnTime = 3f;
+    public int enemyLimit;
+    public float anchoArea;
+    public float alturaArea;
+    public float minSpawnTime;
+    public float maxSpawnTime;
 
     private float remainingTime;
     private int currentEnemyCount = 0;
@@ -40,8 +40,8 @@ public class RandomGeneration : MonoBehaviour
 
     private Vector2 GetRandomPointInArea()
     {
-        float x = Random.Range(-alturaArea / 2f, alturaArea / 2f);
-        float y = Random.Range(-anchoArea / 2f, anchoArea / 2f);
+        float x = Random.Range(-anchoArea / 2f, anchoArea / 2f);
+        float y = Random.Range(-alturaArea / 2f, alturaArea / 2f);
         return (Vector2)transform.position + new Vector2(x, y);
     }
 
