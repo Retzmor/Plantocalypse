@@ -13,6 +13,8 @@ public class GameAdministrator : MonoBehaviour
     public LegacyGameState creditsMenu;
     public LegacyGameState mainMenu;
     public LegacyGameState gameOverMenu;
+    public LegacyGameState menuPausa;
+    public LegacyGameState menuDespausa;
     private string currentStage = "Intro";
 
 
@@ -51,12 +53,15 @@ public class GameAdministrator : MonoBehaviour
         Time.timeScale = 1;
         currentStage = sceneName;
         Debug.Log("Escenario: " + currentStage);
+        
     }
 
     public void StageChange(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
         currentStage = sceneName;
+        Time.timeScale = 1;
+        menuDespausa?.Invoke();
     }
 
     public void GameContinue()
@@ -74,6 +79,18 @@ public class GameAdministrator : MonoBehaviour
     {
         Time.timeScale = 0;
         optionsMenu?.Invoke();
+    }
+
+    public void Pausa()
+    {
+        Time.timeScale = 0;
+        menuPausa?.Invoke();
+    }
+
+    public void Despausar()
+    {
+        Time.timeScale = 1;
+        menuDespausa?.Invoke();
     }
 
     public void Credits()

@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class PanelController : MonoBehaviour
 {
+    public static PanelController Instance;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
 
-    [SerializeField] GameObject mainMenuPanel, optionsPanel, creditsPanel, gameOverPanel;
+    [SerializeField] GameObject mainMenuPanel, optionsPanel, creditsPanel, gameOverPanel, gameMenuPausa, gameInterfazMenu;
     // Start is called before the first frame update
     private void OnEnable()
     {
@@ -13,6 +21,8 @@ public class PanelController : MonoBehaviour
         GameAdministrator.Instance.optionsMenu += ShowOptionsPanel;
         GameAdministrator.Instance.creditsMenu += ShowCreditsPanel;
         GameAdministrator.Instance.gameOverMenu += ShowGameOverPanel;
+        GameAdministrator.Instance.menuPausa += ShowMenuPausa;
+        GameAdministrator.Instance.menuDespausa += DesactiveMenuPausa;
     }
 
     private void OnDisable()
@@ -21,6 +31,8 @@ public class PanelController : MonoBehaviour
         GameAdministrator.Instance.optionsMenu -= ShowOptionsPanel;
         GameAdministrator.Instance.creditsMenu -= ShowCreditsPanel;
         GameAdministrator.Instance.gameOverMenu -= ShowGameOverPanel;
+        GameAdministrator.Instance.menuPausa -= ShowMenuPausa;
+        GameAdministrator.Instance.menuDespausa -= DesactiveMenuPausa;
     }
 
     public void ShowMainPanel()
@@ -53,5 +65,15 @@ public class PanelController : MonoBehaviour
         optionsPanel.SetActive(false);
         creditsPanel.SetActive(false);
         gameOverPanel.SetActive(true);
+    }
+
+    public void ShowMenuPausa()
+    {
+        gameMenuPausa.SetActive(true);
+    }
+
+    public void DesactiveMenuPausa()
+    {
+        gameMenuPausa.SetActive(false);
     }
 }
