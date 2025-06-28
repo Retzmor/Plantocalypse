@@ -11,6 +11,10 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject enemigo1;
     [SerializeField] private GameObject enemigo2;
     [SerializeField] private GameObject enemigo3;
+    PlayerMovement playerMovement;
+
+    public delegate void PlayerMovementDelegate(bool activarRb);
+    public static event PlayerMovementDelegate playerMovementDelegate;
 
     private int enemigosDerrotados = 0;
 
@@ -25,12 +29,14 @@ public class TutorialManager : MonoBehaviour
             "¡Bienvenido al tutorial!",                                     //Alejandr@s, si van a añadir algo al texto, hacerlo en esas comillas, este es el primer cuadro que se muestras
             "Derrota al primer enemigo."
         };
-
+        
         dialogueManager.SetDialogue(dialogoInicial);
         dialogueManager.OnDialogueEnd = () =>
         {
             cameraManager.EnfocarCamara(0, 3f); 
             StartCoroutine(ActivarConRetraso(enemigo1, 3f));
+
+            playerMovementDelegate?.Invoke(true);
         };
     }
 

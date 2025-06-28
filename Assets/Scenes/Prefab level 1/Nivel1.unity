@@ -367,6 +367,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mounstruo boss
       objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: 3ed81cf0ebaa07a40addc38164c6d3c1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 3ed81cf0ebaa07a40addc38164c6d3c1, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2475
@@ -47232,7 +47236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: de3ac81dabfa1b441a3f59d9ce85c7ea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.91
+      value: 13.47
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: de3ac81dabfa1b441a3f59d9ce85c7ea, type: 3}
       propertyPath: m_LocalPosition.z
@@ -60334,6 +60338,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1826634111 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1829747558967276555, guid: 0b15fd00a21d6124f9db7325ebb973b0, type: 3}
+  m_PrefabInstance: {fileID: 401825859}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf98432e2da79204880a65f616b7683a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1907831574
 GameObject:
   m_ObjectHideFlags: 0
@@ -62330,6 +62345,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7784774971519138024, guid: d8f6a28afafcd0d45ab1772accc933a3, type: 3}
+      propertyPath: barraVida
+      value: 
+      objectReference: {fileID: 1826634111}
     - target: {fileID: 7784774971519138024, guid: d8f6a28afafcd0d45ab1772accc933a3, type: 3}
       propertyPath: velocityPlayer
       value: 3

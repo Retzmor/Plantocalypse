@@ -6,7 +6,7 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Rigidbody2D rb;
+    Rigidbody2D _rb;
     public float currenHealthPlayer;
     private float health = 100;
     [SerializeField] float movX = 0;
@@ -15,11 +15,23 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] BarraVIda barraVida;
 
     public float Health { get => health; set => health = value; }
+    public Rigidbody2D Rb { get => _rb; set => _rb = value; }
+
+    private void OnEnable()
+    {
+        TutorialManager.playerMovementDelegate += ActivacionRb;
+    }
+
+    public void OnDisable()
+    {
+        TutorialManager.playerMovementDelegate -= ActivacionRb;
+    }
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        Rb = GetComponent<Rigidbody2D>();
         currenHealthPlayer = Health;
+        Rb.bodyType = RigidbodyType2D.Static;
     }
 
     // Update is called once per frame
@@ -31,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(movX, movY) * velocityPlayer;
+        _rb.linearVelocity = new Vector2(movX, movY) * velocityPlayer;
     }
 
     public void RecibirDaño(int damage)
@@ -48,6 +60,11 @@ public class PlayerMovement : MonoBehaviour
     private void Muerte(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void ActivacionRb(bool rb)
+    {
+        _rb.bodyType = RigidbodyType2D.Dynamic;
     }
 
 }
