@@ -6,10 +6,9 @@ public class RandomGeneration : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public int enemyLimit;
-    public float anchoArea;
-    public float alturaArea;
     public float minSpawnTime;
     public float maxSpawnTime;
+    public PolygonCollider2D spawnArea;
 
     private float remainingTime;
     private int currentEnemyCount = 0;
@@ -40,9 +39,25 @@ public class RandomGeneration : MonoBehaviour
 
     private Vector2 GetRandomPointInArea()
     {
-        float x = Random.Range(-anchoArea / 2f, anchoArea / 2f);
-        float y = Random.Range(-alturaArea / 2f, alturaArea / 2f);
-        return (Vector2)transform.position + new Vector2(x, y);
+        Bounds bounds = spawnArea.bounds;
+        Vector2 point = Vector2.zero;
+        int attempts = 0;
+        int maxAttempts = 100;
+
+        do
+        {
+            float x = Random.Range(bounds.min.x, bounds.max.x);
+            float y = Random.Range(bounds.min.y, bounds.max.y);
+            point = new Vector2(x, y);
+            attempts++;
+        } while (!spawnArea.OverlapPoint(point) && attempts < maxAttempts);
+
+        if (attempts >= maxAttempts)
+        {
+            Debug.LogWarning("No se pudo encontrar un punto válido dentro del área de spawn.");
+        }
+
+        return point;
     }
 
     private void SetNextSpawnTime()
@@ -50,9 +65,16 @@ public class RandomGeneration : MonoBehaviour
         remainingTime = Random.Range(minSpawnTime, maxSpawnTime);
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(transform.position, new Vector3(anchoArea, alturaArea, 0));
+        if (spawnArea != null)
+        {
+            Gizmos.color = Color.red;
+            for (int i = 0; i < 10; i++)
+            {
+                Vector2 testPoint = GetRandomPointInArea();
+                Gizmos.DrawSphere(testPoint, 0.1f);
+            }
+        }
     }
 }
