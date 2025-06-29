@@ -7,23 +7,27 @@ public class AttackMushRoom : MonoBehaviour
     [SerializeField] float radiusAttack;
     [SerializeField] GameObject zoneAttack;
     [SerializeField] int damage;
-     void Start()
+    [SerializeField] float coolDown;
+    private float enfriamientoAtaque = -Mathf.Infinity;
+
+    void Start()
     {
        m_Enemy = GetComponent<MushRoomEnemy>();
     }
 
     private void FixedUpdate()
     {
-        Collider2D attack = Physics2D.OverlapCircle(zoneAttack.transform.position,radiusAttack,m_Enemy.LayermaskMushRoom);
-        if (attack)
+        Collider2D attack = Physics2D.OverlapCircle(zoneAttack.transform.position, radiusAttack, m_Enemy.LayermaskMushRoom);
+        if (attack && Time.time - enfriamientoAtaque >= coolDown)
         {
-            m_Enemy.AnimatorMushroom.SetTrigger("Attack");
             ToAttack();
+            enfriamientoAtaque = Time.time;
         }
     }
 
     public void ToAttack()
     {
+        m_Enemy.AnimatorMushroom.SetTrigger("Attack");
         p_Movement.RecibirDaño(damage);
     }
 

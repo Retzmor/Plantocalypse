@@ -46,12 +46,10 @@ public class MushRoomEnemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log(damage);
-        Debug.Log("reciboDaño");
-
+        _animator.SetTrigger("TakeDamage");
         if (currentHealth < 0)
         {
-            Destroy(gameObject);
+            _animator.SetBool("Death", true);
         }
     }
 

@@ -1,27 +1,24 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class MuerteHidra : StateMachineBehaviour
+public class DeathMushRoom : StateMachineBehaviour
 {
-
-    HidraEnemy hEnemy;
+    MushRoomEnemy mEnemy;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        hEnemy = animator.GetComponent<HidraEnemy>();
+        mEnemy = animator.GetComponent<MushRoomEnemy>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
-        
+    //    
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("Soy yo xd");
-        Destroy(hEnemy.gameObject);
+         Destroy(mEnemy.gameObject);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

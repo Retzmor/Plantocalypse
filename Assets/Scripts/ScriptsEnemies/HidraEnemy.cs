@@ -66,11 +66,9 @@ public class HidraEnemy : MonoBehaviour
     {
         CurrentHealth -= damage;
         _animator.SetTrigger("RecibirDaño");
-        Debug.Log(CurrentHealth);
         if (CurrentHealth <= 0)
         {
             _animator.SetBool("Muerte", true);
-            _animator.SetBool("Atacar", false);
             tutorialManager.EnemigoDerrotado();
         }
     }
@@ -87,14 +85,7 @@ public class HidraEnemy : MonoBehaviour
                 enfriamientoAtaque = Time.time;
             }
 
-            _animator.SetBool("Atacar", true);
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            _animator.SetBool("Atacar", false);
+            _animator.SetTrigger("Atacar");
         }
     }
 
