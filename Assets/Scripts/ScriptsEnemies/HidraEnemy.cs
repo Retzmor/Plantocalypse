@@ -1,8 +1,11 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class HidraEnemy : MonoBehaviour
 {
+    Animator _animator;
+    NavMeshAgent _agent;
     [SerializeField] GameObject _target;
     [SerializeField] GameObject gizmo;
     [SerializeField] GameObject gizmoAttack;
@@ -14,29 +17,29 @@ public class HidraEnemy : MonoBehaviour
     [SerializeField] private GameObject enemigo1;
     [SerializeField] private GameObject enemigo2;
     [SerializeField] private TutorialManager tutorialManager;
-    Rigidbody2D _rb;
-    Animator _animator;
     private float health = 100;
     private int damage = 10;
     private float currentHealth = 100;
-    private bool enemigoMuerto = false;
-    private bool dialogoMostrado = false;
+    //private bool enemigoMuerto = false;
+    //private bool dialogoMostrado = false;
     [SerializeField] private float attackCooldown = 0.5f;
     private float enfriamientoAtaque = -Mathf.Infinity;     
 
 
-    public Rigidbody2D RbHidra { get => _rb; set => _rb = value; }
     public Animator AnimatorHidra { get => _animator; set => _animator = value; }
     public GameObject TargetHidra { get => _target; set => _target = value; }
     public float SpeedHidra { get => _speed; set => _speed = value; }
     public int Damage { get => damage; set => damage = value; }
     public float CurrentHealth { get => currentHealth; set => currentHealth = value; }
+    public NavMeshAgent Agent { get => _agent; set => _agent = value; }
 
     void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
+            CurrentHealth = health;
         _animator = GetComponent<Animator>();
-        CurrentHealth = health;
+        _agent = GetComponent<NavMeshAgent>();
+        _agent.updateRotation = false;
+        _agent.updateUpAxis = false;
     }
 
     private void FixedUpdate()
@@ -46,6 +49,11 @@ public class HidraEnemy : MonoBehaviour
         if (zona)
         {
             _animator.SetBool("Seguir", zona);
+        }
+
+        else
+        {
+            _animator.SetBool("Seguir", false);
         }
     }
 

@@ -29,7 +29,16 @@ public class AttackPlayer : MonoBehaviour
 
         for (int i = 0; i < attacking.Length; i++)
         {
-            attacking[i].GetComponent<HidraEnemy>().TakeDamage(damage);
+            HidraEnemy hidra = attacking[i].GetComponent<HidraEnemy>();
+            if (hidra != null)
+            {
+                hidra.TakeDamage(damage);
+            }
+            MushRoomEnemy mush = attacking[i].GetComponent<MushRoomEnemy>();
+            if (mush != null)
+            {
+                mush.TakeDamage(damage);
+            }
         }
     }
 

@@ -1,26 +1,18 @@
 using UnityEngine;
 
-public class AttackHidra : StateMachineBehaviour
+public class FollowEnemyMushRoom : StateMachineBehaviour
 {
-    HidraEnemy hidra;
-    PlayerMovement player;
-    bool damageApplied;
-
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    MushRoomEnemy mushRoomEnemy;
+    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateinfo, int layerindex)
     {
-        hidra = animator.GetComponent<HidraEnemy>();
-        player = hidra.TargetHidra.GetComponent<PlayerMovement>();
-        damageApplied = false;
+        mushRoomEnemy = animator.GetComponent<MushRoomEnemy>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (!damageApplied && stateInfo.normalizedTime >= 0.5f)
-        {
-            player.RecibirDaño(hidra.Damage);
-            damageApplied = true;
-        }
+        mushRoomEnemy.Agent.SetDestination(mushRoomEnemy.Target.transform.position);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

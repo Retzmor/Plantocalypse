@@ -59,7 +59,7 @@ public class TutorialManager : MonoBehaviour
             };
         }
 
-        if (enemigosDerrotados == 4)
+        if (enemigosDerrotados == 3)
         {
     
             string[] final = {

@@ -97,14 +97,14 @@ ScriptedImporter:
   layeredSpriteImportData:
   - name: Capa 8
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 1551
-      y: 4
+      x: 1541
+      y: 0
       width: 492
       height: 968
     spriteID: e8ed1e4c532535243828a678a9b8b0ca
@@ -902,8 +902,8 @@ ScriptedImporter:
     spritePosition: {x: 643, y: 938}
   - name: Capa 7
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -1657,8 +1657,8 @@ ScriptedImporter:
     spritePosition: {x: 1032, y: 916}
   - name: Capa 10
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -1963,8 +1963,8 @@ ScriptedImporter:
     spritePosition: {x: 1029, y: 2072}
   - name: Capa 9
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -2749,14 +2749,14 @@ ScriptedImporter:
     spritePosition: {x: 1465, y: 997}
   - name: Capa 4
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
       x: 4
-      y: 1343
+      y: 1348
       width: 1046
       height: 1449
     spriteID: 40457fa18f80f0e43a9af86c00460d1b
@@ -3601,8 +3601,8 @@ ScriptedImporter:
     spritePosition: {x: 630, y: 692}
   - name: Capa 5
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -4198,14 +4198,14 @@ ScriptedImporter:
     spritePosition: {x: 625, y: 106}
   - name: Capa 6
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
       x: 1308
-      y: 2800
+      y: 2805
       width: 691
       height: 589
     spriteID: ca406d044934fef4a90ccccf3e39d7b3
@@ -4705,14 +4705,14 @@ ScriptedImporter:
     spritePosition: {x: 1283, y: 156}
   - name: Capa 9
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 1058
-      y: 1343
+      x: 1073
+      y: 1353
       width: 484
       height: 754
     spriteID: 3f0a2173884c65c4186a4c1cf0413ca5
@@ -5477,8 +5477,8 @@ ScriptedImporter:
     spritePosition: {x: 1492, y: 1025}
   - name: Capa 3
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -8401,14 +8401,14 @@ ScriptedImporter:
     spritePosition: {x: 599, y: 2137}
   - name: Capa 2
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 4
+      x: 19
+      y: 0
       width: 1539
       height: 1331
     spriteID: a7ba6e79900a1e1478c74c274631cc6f
@@ -9011,6 +9011,28 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
     spritePosition: {x: 449, y: 2062}
+  - name: alejo gay_0
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 2048
+      height: 4096
+    spriteID: 142a12a2108903e498d50656af000310
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   spriteImportData: []
   rigSpriteImportData: []
   sharedRigSpriteImportData: []
