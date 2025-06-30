@@ -43,7 +43,6 @@ public class RandomGeneration : MonoBehaviour
         Vector2 point = Vector2.zero;
         int attempts = 0;
         int maxAttempts = 100;
-
         do
         {
             float x = Random.Range(bounds.min.x, bounds.max.x);
@@ -51,12 +50,6 @@ public class RandomGeneration : MonoBehaviour
             point = new Vector2(x, y);
             attempts++;
         } while (!spawnArea.OverlapPoint(point) && attempts < maxAttempts);
-
-        if (attempts >= maxAttempts)
-        {
-            Debug.LogWarning("No se pudo encontrar un punto válido dentro del área de spawn.");
-        }
-
         return point;
     }
 
