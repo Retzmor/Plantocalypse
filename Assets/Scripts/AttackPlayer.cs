@@ -9,11 +9,6 @@ public class AttackPlayer : MonoBehaviour
     [SerializeField] float radius;
     public LayerMask zoneAttack;
     
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -38,6 +33,12 @@ public class AttackPlayer : MonoBehaviour
             if (mush != null)
             {
                 mush.TakeDamage(damage);
+            }
+
+            Carnivora carnivora = attacking[i].GetComponent<Carnivora>();
+            if (carnivora != null)
+            {
+                carnivora.TakeDamage(damage);
             }
         }
     }

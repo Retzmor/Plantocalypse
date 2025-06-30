@@ -6,7 +6,7 @@ public class MushRoomEnemy : MonoBehaviour
     Animator _animator;
     NavMeshAgent _agent;
     [SerializeField] float health;
-    [SerializeField] float currentHealth;
+    [SerializeField] float _currentHealth;
     [SerializeField] float speed;
 
     [SerializeField] float radiusDetected;
@@ -17,6 +17,7 @@ public class MushRoomEnemy : MonoBehaviour
     public GameObject Target { get => _target; set => _target = value; }
     public NavMeshAgent Agent { get => _agent; set => _agent = value; }
     public LayerMask LayermaskMushRoom { get => layermask; set => layermask = value; }
+    public float CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,7 +26,7 @@ public class MushRoomEnemy : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
-        currentHealth = health;
+        CurrentHealth = health;
     }
 
     private void FixedUpdate()
@@ -44,10 +45,14 @@ public class MushRoomEnemy : MonoBehaviour
     }
 
     public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        _animator.SetTrigger("TakeDamage");
-        if (currentHealth < 0)
+    { 
+        if (CurrentHealth > 0)
+        {
+            CurrentHealth -= damage;
+            _animator.SetTrigger("TakeDamage");
+        }
+
+        else
         {
             _animator.SetBool("Death", true);
         }

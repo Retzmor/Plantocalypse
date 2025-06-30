@@ -51,9 +51,13 @@ public class HidraEnemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        CurrentHealth -= damage;
-        _animator.SetTrigger("RecibirDaño");
-        if (CurrentHealth <= 0)
+        if(currentHealth > 0)
+        {
+            CurrentHealth -= damage;
+            _animator.SetTrigger("RecibirDaño");
+        }
+
+        else
         {
             _animator.SetBool("Muerte", true);
             tutorialManager.EnemigoDerrotado();

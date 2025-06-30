@@ -18,7 +18,7 @@ public class AttackMushRoom : MonoBehaviour
     private void FixedUpdate()
     {
         Collider2D attack = Physics2D.OverlapCircle(zoneAttack.transform.position, radiusAttack, m_Enemy.LayermaskMushRoom);
-        if (attack && Time.time - coolDownAttack >= coolDown)
+        if (attack && Time.time - coolDownAttack >= coolDown && m_Enemy.CurrentHealth > 0)
         {
             ToAttack();
             coolDownAttack = Time.time;

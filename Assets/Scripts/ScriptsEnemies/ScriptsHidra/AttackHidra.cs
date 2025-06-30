@@ -19,7 +19,7 @@ public class AttackHidra : MonoBehaviour
     private void FixedUpdate()
     {
         Collider2D zonaAttack = Physics2D.OverlapCircle(zonaAttackGizmo.transform.position,radiusAttack, hEnemy.LayerMaskHidra);
-        if (zonaAttack && Time.time - coolDownAttack >= coolDown)
+        if (zonaAttack && Time.time - coolDownAttack >= coolDown && hEnemy.CurrentHealth > 0)
         {
             ToAttack();
             coolDown = Time.time; 
