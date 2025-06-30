@@ -12,6 +12,18 @@ public class FollowEnemyMushRoom : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+
+        Vector3 rotacionActual = mushRoomEnemy.transform.localScale;
+        float diferenciaX = mushRoomEnemy.Target.transform.position.x - mushRoomEnemy.transform.position.x;
+
+        if (diferenciaX < 0)
+        {
+            mushRoomEnemy.transform.localScale = new Vector3(Mathf.Abs(rotacionActual.x), rotacionActual.y, rotacionActual.z);
+        }
+        else if (diferenciaX > 0)
+        {
+            mushRoomEnemy.transform.localScale = new Vector3(-Mathf.Abs(rotacionActual.x), rotacionActual.y, rotacionActual.z);
+        }
         mushRoomEnemy.Agent.SetDestination(mushRoomEnemy.Target.transform.position);
     }
 

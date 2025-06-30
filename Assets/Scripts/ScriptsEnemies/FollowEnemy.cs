@@ -13,6 +13,17 @@ public class FollowEnemy : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        Vector3 rotacionActual = HidraEnemy.transform.localScale;
+        float diferenciaX = HidraEnemy.TargetHidra.transform.position.x - HidraEnemy.transform.position.x;
+
+        if (diferenciaX < 0)
+        {
+            HidraEnemy.transform.localScale = new Vector3(Mathf.Abs(rotacionActual.x), rotacionActual.y, rotacionActual.z);
+        }
+        else if (diferenciaX > 0)
+        {
+            HidraEnemy.transform.localScale = new Vector3(-Mathf.Abs(rotacionActual.x), rotacionActual.y, rotacionActual.z);
+        }
         HidraEnemy.Agent.SetDestination(HidraEnemy.TargetHidra.transform.position);
     }
 

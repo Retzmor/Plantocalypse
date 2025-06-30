@@ -7,35 +7,27 @@ public class HidraEnemy : MonoBehaviour
     Animator _animator;
     NavMeshAgent _agent;
     [SerializeField] GameObject _target;
-    [SerializeField] GameObject gizmo;
-    [SerializeField] GameObject gizmoAttack;
     [SerializeField] float radius;
-    [SerializeField] float radiusAttack;
-    [SerializeField] LayerMask layerMask;
+    [SerializeField] LayerMask _layerMask;
     [SerializeField] private float _speed;
     [SerializeField] private ScriptDialogue dialogue;
     [SerializeField] private GameObject enemigo1;
     [SerializeField] private GameObject enemigo2;
     [SerializeField] private TutorialManager tutorialManager;
     private float health = 100;
-    private int damage = 10;
     private float currentHealth = 100;
-    //private bool enemigoMuerto = false;
-    //private bool dialogoMostrado = false;
-    [SerializeField] private float attackCooldown = 0.5f;
-    private float enfriamientoAtaque = -Mathf.Infinity;     
 
 
     public Animator AnimatorHidra { get => _animator; set => _animator = value; }
     public GameObject TargetHidra { get => _target; set => _target = value; }
     public float SpeedHidra { get => _speed; set => _speed = value; }
-    public int Damage { get => damage; set => damage = value; }
     public float CurrentHealth { get => currentHealth; set => currentHealth = value; }
     public NavMeshAgent Agent { get => _agent; set => _agent = value; }
+    public LayerMask LayerMaskHidra { get => _layerMask; set => _layerMask = value; }
 
     void Start()
     {
-            CurrentHealth = health;
+        CurrentHealth = health;
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
         _agent.updateRotation = false;
@@ -44,7 +36,7 @@ public class HidraEnemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Collider2D zona = Physics2D.OverlapCircle(transform.position, radius, layerMask);
+        Collider2D zona = Physics2D.OverlapCircle(transform.position, radius, _layerMask);
 
         if (zona)
         {
@@ -55,11 +47,6 @@ public class HidraEnemy : MonoBehaviour
         {
             _animator.SetBool("Seguir", false);
         }
-    }
-
-    private void Update()
-    {
-        
     }
 
     public void TakeDamage(int damage)
@@ -73,29 +60,11 @@ public class HidraEnemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            PlayerMovement jugador = collision.GetComponent<PlayerMovement>();
-
-            if (jugador != null && Time.time - enfriamientoAtaque >= attackCooldown)
-            {
-                jugador.RecibirDaño(damage);
-                enfriamientoAtaque = Time.time;
-            }
-
-            _animator.SetTrigger("Atacar");
-        }
-    }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, radius);
     }
-
- 
 
     public void ActivarEnemigosFase2()
     {
