@@ -11,7 +11,6 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject enemigo1;
     [SerializeField] private GameObject enemigo2;
     [SerializeField] private GameObject enemigo3;
-    PlayerMovement playerMovement;
 
     public delegate void PlayerMovementDelegate(bool activarRb);
     public static event PlayerMovementDelegate playerMovementDelegate;
@@ -79,7 +78,6 @@ public class TutorialManager : MonoBehaviour
     private IEnumerator ActivarConRetraso(GameObject enemigo, float tiempo)
     {
         yield return new WaitForSeconds(tiempo);
-        Debug.Log("Activando: " + enemigo.name);
         enemigo.SetActive(true);
     }
 
