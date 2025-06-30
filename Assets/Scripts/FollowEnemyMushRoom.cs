@@ -16,11 +16,11 @@ public class FollowEnemyMushRoom : StateMachineBehaviour
         Vector3 rotacionActual = mushRoomEnemy.transform.localScale;
         float diferenciaX = mushRoomEnemy.Target.transform.position.x - mushRoomEnemy.transform.position.x;
 
-        if (diferenciaX < 0)
+        if (diferenciaX > 0)
         {
             mushRoomEnemy.transform.localScale = new Vector3(Mathf.Abs(rotacionActual.x), rotacionActual.y, rotacionActual.z);
         }
-        else if (diferenciaX > 0)
+        else if (diferenciaX < 0)
         {
             mushRoomEnemy.transform.localScale = new Vector3(-Mathf.Abs(rotacionActual.x), rotacionActual.y, rotacionActual.z);
         }
