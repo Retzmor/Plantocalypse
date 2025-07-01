@@ -26,4 +26,13 @@ public class ControladorAudios : MonoBehaviour
     {
         audioSource.PlayOneShot(sonido);
     }
+
+    public void EjecutarAudioUnaVez(AudioClip sonido2)
+    {
+        audioSource.PlayOneShot(sonido2);
+
+    }
+
 }
+
+

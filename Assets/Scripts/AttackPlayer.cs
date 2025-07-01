@@ -8,13 +8,15 @@ public class AttackPlayer : MonoBehaviour
     [SerializeField] Transform playerPosition;
     [SerializeField] float radius;
     public LayerMask zoneAttack;
-    
+    [SerializeField] AudioClip ataque;
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P)) 
         {
             Attack();
+            ControladorAudios.Intance.EjecutarSonido(ataque);
         }
     }
 
