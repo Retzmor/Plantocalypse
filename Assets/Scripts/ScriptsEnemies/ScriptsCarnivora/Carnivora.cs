@@ -13,6 +13,7 @@ public class Carnivora : MonoBehaviour
     [SerializeField] LayerMask _layermask;
     [SerializeField] GameObject _player;
     [SerializeField] TutorialManager manager;
+    [SerializeField] AudioClip muerte;
 
     public NavMeshAgent Agent { get => _agent; set => _agent = value; }
     public Animator Anim { get => _anim; set => _anim = value; }
@@ -54,6 +55,7 @@ public class Carnivora : MonoBehaviour
         else
         {
             Die();
+            ControladorAudios.Intance.EjecutarSonido(muerte);
         } 
     }
 

@@ -13,7 +13,9 @@ public class MushRoomEnemy : MonoBehaviour
     [SerializeField] LayerMask layermask;
     [SerializeField] GameObject _target;
     [SerializeField] TutorialManager manager;
- 
+    [SerializeField] AudioClip muerte;
+   
+
     public Animator AnimatorMushroom { get => _animator; set => _animator = value; }
     public GameObject Target { get => _target; set => _target = value; }
     public NavMeshAgent Agent { get => _agent; set => _agent = value; }
@@ -57,6 +59,7 @@ public class MushRoomEnemy : MonoBehaviour
         {
             _animator.SetBool("Death", true);
             manager.EnemigoDerrotado();
+            ControladorAudios.Intance.EjecutarSonido(muerte);
         }
     }
 

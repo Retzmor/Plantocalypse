@@ -856,6 +856,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: a6e0de54990c80d40999807426594f72, type: 3}
       insertIndex: -1
       addedObject: {fileID: 237918776}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: a6e0de54990c80d40999807426594f72, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 237918777}
     - targetCorrespondingSourceObject: {fileID: 4711369512903096919, guid: a6e0de54990c80d40999807426594f72, type: 3}
       insertIndex: -1
       addedObject: {fileID: 237918770}
@@ -935,6 +938,7 @@ MonoBehaviour:
     m_Bits: 64
   _player: {fileID: 1029648391}
   manager: {fileID: 92773733}
+  muerte: {fileID: 8300000, guid: 81fc74a8ddbecf643a91318f322a918b, type: 3}
 --- !u!60 &237918772
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -965,7 +969,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1059,6 +1063,19 @@ MonoBehaviour:
   pMovement: {fileID: 1112143688}
   radiusAttack: 1
   coolDown: 1
+--- !u!114 &237918777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237918767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fd2addbdf91504e8dd3cc04dceb309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonido: {fileID: 8300000, guid: 9897db20ce5eca34daf52e61447327d3, type: 3}
 --- !u!1 &305848795
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,8 +1403,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.51
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6390,6 +6407,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 7ac3ed0bc68bfbf469c20a4e0e8c7084, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1152766560}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 7ac3ed0bc68bfbf469c20a4e0e8c7084, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1152766561}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 7ac3ed0bc68bfbf469c20a4e0e8c7084, type: 3}
 --- !u!4 &1152766554 stripped
 Transform:
@@ -6444,6 +6464,7 @@ MonoBehaviour:
     m_Bits: 64
   _target: {fileID: 1029648391}
   manager: {fileID: 92773733}
+  muerte: {fileID: 8300000, guid: 81fc74a8ddbecf643a91318f322a918b, type: 3}
 --- !u!195 &1152766558
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6586,6 +6607,19 @@ PolygonCollider2D:
       - {x: 5.217822, y: 1.7337946}
       - {x: 7.3614473, y: 1.6521293}
   m_UseDelaunayMesh: 0
+--- !u!114 &1152766561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152766555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824c2d268db40f7468e59d7f81cca769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonido: {fileID: 8300000, guid: 0979f9fdcd18b83448fb0bc3886a0141, type: 3}
 --- !u!1001 &1179900552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22357,6 +22391,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 12653294106186655, guid: da4720ffb1a19324ba0c57d9868355ae, type: 3}
+      propertyPath: muerte
+      value: 
+      objectReference: {fileID: 8300000, guid: 81fc74a8ddbecf643a91318f322a918b, type: 3}
+    - target: {fileID: 12653294106186655, guid: da4720ffb1a19324ba0c57d9868355ae, type: 3}
       propertyPath: _target
       value: 
       objectReference: {fileID: 1029648391}
@@ -22372,6 +22410,10 @@ PrefabInstance:
       propertyPath: enemigo2
       value: 
       objectReference: {fileID: 237918767}
+    - target: {fileID: 12653294106186655, guid: da4720ffb1a19324ba0c57d9868355ae, type: 3}
+      propertyPath: "recibirDa\xF1o"
+      value: 
+      objectReference: {fileID: 8300000, guid: b088e9b9c7df42e4b9b8defd2a3a66fb, type: 3}
     - target: {fileID: 12653294106186655, guid: da4720ffb1a19324ba0c57d9868355ae, type: 3}
       propertyPath: tutorialManager
       value: 

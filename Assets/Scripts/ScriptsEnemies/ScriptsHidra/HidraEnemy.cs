@@ -16,6 +16,8 @@ public class HidraEnemy : MonoBehaviour
     [SerializeField] private TutorialManager tutorialManager;
     private float health = 100;
     private float currentHealth = 100;
+    [SerializeField] AudioClip muerte;
+    [SerializeField] AudioClip recibirDaño;
 
 
     public Animator AnimatorHidra { get => _animator; set => _animator = value; }
@@ -51,16 +53,24 @@ public class HidraEnemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if(currentHealth > 0)
+
+       
+        if (currentHealth > 0)
         {
+           
             CurrentHealth -= damage;
             _animator.SetTrigger("RecibirDaño");
+            ControladorAudios.Intance.EjecutarSonido(recibirDaño);
+
+
         }
 
         else
         {
+          
             _animator.SetBool("Muerte", true);
             tutorialManager.EnemigoDerrotado();
+            ControladorAudios.Intance.EjecutarSonido(muerte);
         }
     }
 
