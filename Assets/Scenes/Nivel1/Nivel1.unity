@@ -47331,7 +47331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e2bb0bfc0c08a49ae48ec9934c9ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1087302395}
   speed: 5
 --- !u!195 &853654381
 NavMeshAgent:
