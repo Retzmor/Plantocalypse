@@ -1,25 +1,23 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class MuerteHidra : StateMachineBehaviour
+public class DeathCarnivoraLvl1 : StateMachineBehaviour
 {
-    HidraEnemy hEnemy;
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    CarnivoraLvl1 carnivora;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        hEnemy = animator.GetComponent<HidraEnemy>();
+        carnivora = animator.GetComponent<CarnivoraLvl1>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
-        
+    //    
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Destroy(hEnemy.gameObject);
+        Destroy(carnivora.gameObject);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
