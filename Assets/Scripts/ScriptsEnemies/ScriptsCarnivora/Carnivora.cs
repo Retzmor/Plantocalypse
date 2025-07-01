@@ -12,6 +12,7 @@ public class Carnivora : MonoBehaviour
     [SerializeField] float radiusAttack;
     [SerializeField] LayerMask _layermask;
     [SerializeField] GameObject _player;
+    [SerializeField] TutorialManager manager;
 
     public NavMeshAgent Agent { get => _agent; set => _agent = value; }
     public Animator Anim { get => _anim; set => _anim = value; }
@@ -59,6 +60,7 @@ public class Carnivora : MonoBehaviour
     public void Die()
     {
         _anim.SetBool("Death", true);
+        manager.EnemigoDerrotado();
     }
 
     private void OnDrawGizmos()

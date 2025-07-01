@@ -934,6 +934,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _player: {fileID: 1029648391}
+  manager: {fileID: 92773733}
 --- !u!60 &237918772
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6396,6 +6397,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _target: {fileID: 1029648391}
+  manager: {fileID: 92773733}
 --- !u!195 &1152766558
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -22249,11 +22251,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8631908515632553852, guid: 4894d5b2d891ba041957e61f1786921b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.5765786
+      value: -6.4
       objectReference: {fileID: 0}
     - target: {fileID: 8631908515632553852, guid: 4894d5b2d891ba041957e61f1786921b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.3976035
+      value: 4.4
       objectReference: {fileID: 0}
     - target: {fileID: 8631908515632553852, guid: 4894d5b2d891ba041957e61f1786921b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22323,7 +22325,7 @@ PrefabInstance:
     - target: {fileID: 12653294106186655, guid: da4720ffb1a19324ba0c57d9868355ae, type: 3}
       propertyPath: enemigo2
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 237918767}
     - target: {fileID: 12653294106186655, guid: da4720ffb1a19324ba0c57d9868355ae, type: 3}
       propertyPath: tutorialManager
       value: 

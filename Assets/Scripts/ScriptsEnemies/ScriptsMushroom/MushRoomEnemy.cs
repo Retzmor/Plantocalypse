@@ -12,6 +12,7 @@ public class MushRoomEnemy : MonoBehaviour
     [SerializeField] float radiusDetected;
     [SerializeField] LayerMask layermask;
     [SerializeField] GameObject _target;
+    [SerializeField] TutorialManager manager;
  
     public Animator AnimatorMushroom { get => _animator; set => _animator = value; }
     public GameObject Target { get => _target; set => _target = value; }
@@ -55,6 +56,7 @@ public class MushRoomEnemy : MonoBehaviour
         else
         {
             _animator.SetBool("Death", true);
+            manager.EnemigoDerrotado();
         }
     }
 

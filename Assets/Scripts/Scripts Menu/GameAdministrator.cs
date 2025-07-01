@@ -34,13 +34,6 @@ public class GameAdministrator : MonoBehaviour
             return;
         }
     }
-
-
-    private void Start()
-    {
-        
-    }
-
     public void MainMenu()
     {
         Time.timeScale = 0;
