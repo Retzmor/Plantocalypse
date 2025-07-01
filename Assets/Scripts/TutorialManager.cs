@@ -34,7 +34,6 @@ public class TutorialManager : MonoBehaviour
         {
             cameraManager.EnfocarCamara(0, 3f); 
             StartCoroutine(ActivarConRetraso(enemigo1, 3f));
-
             playerMovementDelegate?.Invoke(true);
         };
     }

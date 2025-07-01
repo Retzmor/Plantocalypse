@@ -8,6 +8,7 @@ public class MushRoomEnemy : MonoBehaviour
     [SerializeField] float health;
     [SerializeField] float _currentHealth;
     [SerializeField] float speed;
+    private bool isDeath = false;
 
     [SerializeField] float radiusDetected;
     [SerializeField] LayerMask layermask;
@@ -49,6 +50,7 @@ public class MushRoomEnemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     { 
+        if(isDeath) return;
         if (CurrentHealth > 0)
         {
             CurrentHealth -= damage;
@@ -57,6 +59,7 @@ public class MushRoomEnemy : MonoBehaviour
 
         else
         {
+            isDeath = true;
             _animator.SetBool("Death", true);
             manager.EnemigoDerrotado();
             ControladorAudios.Intance.EjecutarSonido(muerte);

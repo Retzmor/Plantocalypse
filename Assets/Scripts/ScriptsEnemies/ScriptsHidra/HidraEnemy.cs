@@ -16,6 +16,7 @@ public class HidraEnemy : MonoBehaviour
     [SerializeField] private TutorialManager tutorialManager;
     private float health = 100;
     private float currentHealth = 100;
+    bool isDeath = false;
     [SerializeField] AudioClip muerte;
     [SerializeField] AudioClip recibirDaño;
 
@@ -53,7 +54,7 @@ public class HidraEnemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-
+        if (isDeath) return; 
        
         if (currentHealth > 0)
         {
@@ -67,7 +68,7 @@ public class HidraEnemy : MonoBehaviour
 
         else
         {
-          
+            isDeath = true;
             _animator.SetBool("Muerte", true);
             tutorialManager.EnemigoDerrotado();
             ControladorAudios.Intance.EjecutarSonido(muerte);

@@ -13,6 +13,7 @@ public class ScriptDialogue : MonoBehaviour
     [SerializeField] GameObject dialoguePanel;
     [SerializeField] GameObject skipButton;
     public System.Action OnDialogueEnd;
+    private bool isWrite = false;
     
 
 
@@ -28,28 +29,31 @@ public class ScriptDialogue : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            if (text.text == dialogues[numberText])
+            if(isWrite)
+            {
+                StopAllCoroutines();
+                text.text =dialogues[numberText];
+                isWrite = false;
+            }
+
+            else
             {
                 NextLine();
             }
-            else
-            {
-                
-                StopAllCoroutines();
-                text.text = dialogues[numberText];
-            }
-        }
-        
+        }    
     }
 
 
     IEnumerator LineOfText()
     {
+        isWrite = true;
+        text.text = "";
         foreach (char letter in dialogues[numberText].ToCharArray())
         {
             text.text += letter;
             yield return new WaitForSeconds(velocityText);
         }
+        isWrite = false;
     }
 
 
@@ -64,7 +68,6 @@ public class ScriptDialogue : MonoBehaviour
 
         else
         {
-            
             DesactiveUI();
         }
         

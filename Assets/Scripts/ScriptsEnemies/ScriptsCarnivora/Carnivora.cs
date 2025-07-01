@@ -14,6 +14,7 @@ public class Carnivora : MonoBehaviour
     [SerializeField] GameObject _player;
     [SerializeField] TutorialManager manager;
     [SerializeField] AudioClip muerte;
+    private bool isDeath = false;
 
     public NavMeshAgent Agent { get => _agent; set => _agent = value; }
     public Animator Anim { get => _anim; set => _anim = value; }
@@ -46,6 +47,7 @@ public class Carnivora : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if(isDeath) return; 
         if (CurrentHealth > 0)
         {
             _anim.SetTrigger("TakeDamage");
@@ -54,6 +56,7 @@ public class Carnivora : MonoBehaviour
 
         else
         {
+            isDeath = true;
             Die();
             ControladorAudios.Intance.EjecutarSonido(muerte);
         } 
