@@ -14,9 +14,6 @@ public class ScriptDialogue : MonoBehaviour
     [SerializeField] GameObject skipButton;
     public System.Action OnDialogueEnd;
     private bool isWrite = false;
-    
-
-
     private int numberText;
     // Start is called before the first frame update
     void Start()

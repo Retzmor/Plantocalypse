@@ -15,7 +15,6 @@ public class PlayerLvl1 : MonoBehaviour
     //[SerializeField] AudioClip caminar;
     [SerializeField] float coolDown;
     [SerializeField] float coolDownPlayer;
-    private float enfriamiento = -Mathf.Infinity;
     private float enfriamiento2 = -Mathf.Infinity;
     public float Health { get => health; set => health = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
