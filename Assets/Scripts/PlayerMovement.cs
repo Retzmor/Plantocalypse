@@ -57,6 +57,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
+
     private void FixedUpdate()
     {
         _rb.linearVelocity = new Vector2(movX, movY) * velocityPlayer;
