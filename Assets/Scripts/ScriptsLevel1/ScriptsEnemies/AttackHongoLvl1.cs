@@ -21,6 +21,7 @@ public class AttackHongoLvl1 : MonoBehaviour
         if (attack && Time.time - coolDownAttack >= coolDown && hongo.CurrentHealth > 0)
         {
             ToAttack();
+            hongo.AnimatorMushroom.SetBool("Follow", false);
             coolDownAttack = Time.time;
         }
 
@@ -28,7 +29,6 @@ public class AttackHongoLvl1 : MonoBehaviour
         {
             hongo.AnimatorMushroom.SetBool("Follow", true);
         }
-
     }
 
     public void ToAttack()

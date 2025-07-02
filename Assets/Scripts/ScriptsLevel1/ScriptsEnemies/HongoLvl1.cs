@@ -37,6 +37,7 @@ public class HongoLvl1 : MonoBehaviour
         {
             CurrentHealth -= damage;
             _animator.SetTrigger("TakeDamage");
+            
         }
 
         else

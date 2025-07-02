@@ -6,10 +6,12 @@ public class Level1Manager : MonoBehaviour
     [SerializeField] private CamerasManagers camerasManager;
     [SerializeField] private GameObject randomGeneration;
     [SerializeField] private GameObject player;
+    [SerializeField] private TiempoController tiempoController;
 
     void Start()
     {
         dialoguesManager.OnDialoguesFinished += EmpezarJuego;
+        tiempoController.seAcaboElTiempo += JefeFinal;
         InicioDeNivel();
     }
 
@@ -34,6 +36,12 @@ public class Level1Manager : MonoBehaviour
         camerasManager.ZoomOutInicio(10f);
         dialoguesManager.SkipButton.gameObject.SetActive(false);
        randomGeneration.SetActive(true);
+        tiempoController.empezarTiempo = true;
     }
-    
+
+    private void JefeFinal()
+    {
+        
+    }
+
 }

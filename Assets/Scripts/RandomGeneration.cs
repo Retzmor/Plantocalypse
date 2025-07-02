@@ -1,138 +1,113 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class RandomGeneration : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> enemigos = new List<GameObject>(); // Prefabs distintos
-    [SerializeField] private int cantidadInicialPorPrefab = 5;
-    [SerializeField] private int enemyLimit = 50;
-    [SerializeField] private float minSpawnTime = 1f;
-    [SerializeField] private float maxSpawnTime = 3f;
+    [SerializeField] private List<GameObject> enemigos = new List<GameObject>();
+    [SerializeField] private int cantidadInicialPorPrefab;
+    [SerializeField] private int enemyLimit;
+    [SerializeField] private float minSpawnTime;
+    [SerializeField] private float maxSpawnTime;
     [SerializeField] private PolygonCollider2D spawnArea;
 
-    private float remainingTime;
+    private List<ObjectPool<GameObject>> pools = new List<ObjectPool<GameObject>>();
 
-    // Una lista de listas → cada sublista guarda enemigos del mismo tipo
-    private List<List<GameObject>> poolListas = new List<List<GameObject>>();
+    // Conteo de enemigos activos por prefab
+    private List<int> activosPorPrefab = new List<int>();
 
-    void Start()
+    private void Start()
     {
-        InicializarPool();
-        SetNextSpawnTime();
-    }
-
-    void Update()
-    {
-        if (TotalEnemigosActivos() >= enemyLimit) return;
-
-        remainingTime -= Time.deltaTime;
-        if (remainingTime <= 0f)
-        {
-            SpawnEnemy();
-            SetNextSpawnTime();
-        }
-    }
-
-    private void InicializarPool()
-    {
+        // Crear un pool para cada tipo de enemigo
         for (int i = 0; i < enemigos.Count; i++)
         {
-            List<GameObject> lista = new List<GameObject>();
+            int index = i; // Para capturar correctamente el índice en las lambdas
+            activosPorPrefab.Add(0); // Inicializar el contador
 
-            for (int j = 0; j < cantidadInicialPorPrefab; j++)
-            {
-                GameObject obj = Instantiate(enemigos[i]);
-                obj.SetActive(false);
-                lista.Add(obj);
-            }
+            ObjectPool<GameObject> pool = new ObjectPool<GameObject>(
+                createFunc: () =>
+                {
+                    GameObject obj = Instantiate(enemigos[index]);
+                    obj.GetComponent<Enemy>().SetPool(this, index);
+                    obj.SetActive(false);
+                    return obj;
+                },
+                actionOnGet: (obj) =>
+                {
+                    obj.SetActive(true);
+                    activosPorPrefab[index]++;
+                },
+                actionOnRelease: (obj) =>
+                {
+                    obj.SetActive(false);
+                    activosPorPrefab[index]--;
+                },
+                actionOnDestroy: (obj) =>
+                {
+                    Destroy(obj);
+                },
+                collectionCheck: false,
+                defaultCapacity: cantidadInicialPorPrefab,
+                maxSize: enemyLimit
+            );
 
-            poolListas.Add(lista);
+            pools.Add(pool);
         }
+
+        // Comenzar ciclo de aparición
+        Invoke(nameof(SpawnEnemy), Random.Range(minSpawnTime, maxSpawnTime));
     }
 
     private void SpawnEnemy()
     {
-        Vector2 spawnPos = GetRandomPointInArea();
-
-        int tipo = Random.Range(0, poolListas.Count);
-        List<GameObject> lista = poolListas[tipo];
-        GameObject enemigo = null;
-
-        for (int i = 0; i < lista.Count; i++)
+        if (TotalActivos() >= enemyLimit)
         {
-            if (!lista[i].activeInHierarchy)
-            {
-                enemigo = lista[i];
-                break;
-            }
+            Invoke(nameof(SpawnEnemy), Random.Range(minSpawnTime, maxSpawnTime));
+            return;
         }
 
-        if (enemigo == null)
-        {
-            enemigo = Instantiate(enemigos[tipo]);
-            enemigo.SetActive(false);
-            lista.Add(enemigo);
-        }
+        int randomIndex = Random.Range(0, pools.Count);
+        Vector2 spawnPosition = GetRandomPointInCollider(spawnArea);
 
-        enemigo.transform.position = spawnPos;
-        enemigo.SetActive(true);
+        GameObject enemigo = pools[randomIndex].Get();
+        enemigo.transform.position = spawnPosition;
+
+        Invoke(nameof(SpawnEnemy), Random.Range(minSpawnTime, maxSpawnTime));
     }
 
-    private int TotalEnemigosActivos()
+    public void ReleaseEnemy(GameObject enemigo, int poolIndex)
+    {
+        if (poolIndex >= 0 && poolIndex < pools.Count)
+        {
+            pools[poolIndex].Release(enemigo);
+        }
+    }
+
+    private int TotalActivos()
     {
         int total = 0;
-
-        for (int i = 0; i < poolListas.Count; i++)
+        for (int i = 0; i < activosPorPrefab.Count; i++)
         {
-            List<GameObject> lista = poolListas[i];
-
-            for (int j = 0; j < lista.Count; j++)
-            {
-                if (lista[j].activeInHierarchy)
-                {
-                    total++;
-                }
-            }
+            total += activosPorPrefab[i];
         }
-
         return total;
     }
 
-    private Vector2 GetRandomPointInArea()
+    private Vector2 GetRandomPointInCollider(PolygonCollider2D collider)
     {
-        Bounds bounds = spawnArea.bounds;
-        Vector2 point = Vector2.zero;
+        Bounds bounds = collider.bounds;
+        Vector2 point;
         int attempts = 0;
-        int maxAttempts = 100;
 
         do
         {
-            float x = Random.Range(bounds.min.x, bounds.max.x);
-            float y = Random.Range(bounds.min.y, bounds.max.y);
-            point = new Vector2(x, y);
+            point = new Vector2(
+                Random.Range(bounds.min.x, bounds.max.x),
+                Random.Range(bounds.min.y, bounds.max.y)
+            );
             attempts++;
-        }
-        while (!spawnArea.OverlapPoint(point) && attempts < maxAttempts);
+        } while (!collider.OverlapPoint(point) && attempts < 10);
 
         return point;
-    }
-
-    private void SetNextSpawnTime()
-    {
-        remainingTime = Random.Range(minSpawnTime, maxSpawnTime);
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (spawnArea != null)
-        {
-            Gizmos.color = Color.red;
-            for (int i = 0; i < 10; i++)
-            {
-                Vector2 testPoint = GetRandomPointInArea();
-                Gizmos.DrawSphere(testPoint, 0.1f);
-            }
-        }
     }
 }
