@@ -49,17 +49,23 @@ public class PlayerLvl1 : MonoBehaviour
 
     public void RecibirDaño(int damage)
     {
+        barraVida.CambiarVidaActual(currenHealthPlayer);
         if (currenHealthPlayer != 100 && Time.time - coolDownPlayer >= enfriamiento2)
         {
             //ControladorAudios.Intance.EjecutarAudioUnaVez(recibirDaño);
             enfriamiento2 = Time.time;
         }
-        barraVida.CambiarVidaActual(currenHealthPlayer);
         currenHealthPlayer -= damage;
         if (currenHealthPlayer <= 0)
         {
             Muerte("GameOver");
         }
+    }
+
+    public void Curar(int cura)
+    {
+        currenHealthPlayer += cura;
+        barraVida.CambiarVidaActual(currenHealthPlayer);
     }
 
     private void Muerte(string sceneName)
