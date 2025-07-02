@@ -47833,7 +47833,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -1512431188337024500, guid: 62507ccd8b9be2d459c5cde1e7b38d11, type: 3}
   m_Color: {r: 1, g: 0.9862055, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -47873,8 +47873,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   curar: 30
---- !u!58 &851274863
-CircleCollider2D:
+--- !u!60 &851274863
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -47908,7 +47908,46 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.61, y: 2.05}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.625, y: -0.205}
+      - {x: 0.73499995, y: -0.024999999}
+      - {x: 0.805, y: 0.125}
+      - {x: 0.805, y: 0.475}
+      - {x: 0.775, y: 0.625}
+      - {x: 0.745, y: 0.73499995}
+      - {x: 0.66499996, y: 0.875}
+      - {x: 0.59499997, y: 0.955}
+      - {x: 0.405, y: 1.025}
+      - {x: 0.16499999, y: 1.025}
+      - {x: 0.005, y: 0.895}
+      - {x: -0.13499999, y: 0.965}
+      - {x: -0.265, y: 1.025}
+      - {x: -0.415, y: 1.025}
+      - {x: -0.60499996, y: 0.97499996}
+      - {x: -0.73499995, y: 0.775}
+      - {x: -0.775, y: 0.635}
+      - {x: -0.805, y: 0.415}
+      - {x: -0.805, y: 0.185}
+      - {x: -0.775, y: -0.005}
+      - {x: -0.715, y: -0.16499999}
+      - {x: -0.59499997, y: -0.385}
+      - {x: -0.445, y: -0.555}
+      - {x: -0.185, y: -0.85499996}
+      - {x: -0.055, y: -0.85499996}
+      - {x: 0.175, y: -0.635}
+      - {x: 0.375, y: -0.475}
+      - {x: 0.505, y: -0.33499998}
+  m_UseDelaunayMesh: 0
 --- !u!1 &866042317
 GameObject:
   m_ObjectHideFlags: 0
@@ -59238,7 +59277,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -995367945, guid: 110edc2196b4b524ea9e9dcaa70cff1c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -61697,7 +61736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1610477175
 RectTransform:
   m_ObjectHideFlags: 0

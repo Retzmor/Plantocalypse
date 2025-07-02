@@ -15,7 +15,7 @@ public class HidraEnemy : MonoBehaviour
     [SerializeField] private GameObject enemigo2;
     [SerializeField] private TutorialManager tutorialManager;
     private float health = 100;
-    private float currentHealth = 100;
+    [SerializeField] private float currentHealth;
     bool isDeath = false;
     [SerializeField] AudioClip muerte;
     [SerializeField] AudioClip recibirDaño;
