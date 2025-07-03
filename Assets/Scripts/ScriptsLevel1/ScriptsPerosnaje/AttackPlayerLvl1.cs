@@ -40,6 +40,12 @@ public class AttackPlayerLvl1 : MonoBehaviour
             {
                 carnivora.TakeDamage(damage);
             }
+
+            BossEnemy bossEnemy = attacking[i].GetComponent<BossEnemy>();
+            if (bossEnemy != null)
+            {
+                bossEnemy.RecibirDaño(damage);
+            }
         }
     }
 
