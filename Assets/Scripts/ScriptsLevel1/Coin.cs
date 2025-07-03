@@ -16,7 +16,7 @@ public class Coin : MonoBehaviour
         {
             Debug.Log("Estoy en el if");
             collision.GetComponent<PlayerLvl1>().Curar(curar);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
