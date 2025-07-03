@@ -106,7 +106,7 @@ public class RandomGeneration : MonoBehaviour
                 Random.Range(bounds.min.y, bounds.max.y)
             );
             attempts++;
-        } while (!collider.OverlapPoint(point) && attempts < 10);
+        } while (!collider.OverlapPoint(point) && attempts < 100);
 
         return point;
     }

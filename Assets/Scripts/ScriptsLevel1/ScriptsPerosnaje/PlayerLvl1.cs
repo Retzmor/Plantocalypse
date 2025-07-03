@@ -6,7 +6,7 @@ public class PlayerLvl1 : MonoBehaviour
     Rigidbody2D _rb;
     Animator _animator;
     public float currenHealthPlayer;
-    private float health = 120;
+    private float health = 120000000;
     [SerializeField] float movX = 0;
     [SerializeField] float movY = 0;
     [SerializeField] float velocityPlayer;

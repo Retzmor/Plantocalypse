@@ -12,7 +12,7 @@ public class AudioCarnivora : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            ControladorAudios.Intance.EjecutarSonido(sonido);
+           // ControladorAudios.Intance.EjecutarSonido(sonido);
         }
     }
 }
