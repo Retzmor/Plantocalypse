@@ -1,7 +1,28 @@
 fileFormatVersion: 2
-guid: b5d3677cf8049844dae0ee770480bafe
+guid: 1eda616197c7b394a8977566e68b29d7
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 5193898847089326524
+    second: sprite idle pj_0
+  - first:
+      213: 7149498261245464275
+    second: sprite idle pj_1
+  - first:
+      213: -5248237978691345293
+    second: sprite idle pj_2
+  - first:
+      213: 7388146751119117615
+    second: sprite idle pj_3
+  - first:
+      213: -1244241147931135786
+    second: sprite idle pj_4
+  - first:
+      213: -4492047237036253453
+    second: sprite idle pj_5
+  - first:
+      213: 793825954450345879
+    second: sprite idle pj_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -67,7 +88,7 @@ TextureImporter:
   swizzle: 50462976
   cookieLightType: 0
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -80,21 +101,8 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,126 +118,180 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpirteSheetElGranjeroFrontalIdel_0
+      name: sprite idle pj_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7a4ade77486e75449a372d600e5bf16c
-      internalID: 636261234
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpirteSheetElGranjeroFrontalIdel_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1afdc5b3ea02baf45a74b562e2421639
-      internalID: -838125004
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpirteSheetElGranjeroFrontalIdel_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71a551a00912f8c4ba33116c11a0c8dd
-      internalID: -774615339
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpirteSheetElGranjeroFrontalIdel_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 670c813187e342c4fa9f723106f380ad
-      internalID: -110497011
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpirteSheetElGranjeroFrontalIdel_4
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 0
-        width: 64
-        height: 64
+        x: 2
+        y: 1108
+        width: 668
+        height: 1051
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 51e633be3c9da4f409fa8ae858aa7a70
-      internalID: -995367945
+      spriteID: cb9f114ab7f641840800000000000000
+      internalID: 5193898847089326524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite idle pj_1
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 1120
+        width: 671
+        height: 1040
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3de0fc7f9ce183360800000000000000
+      internalID: 7149498261245464275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite idle pj_2
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 1135
+        width: 690
+        height: 1025
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 374636f5d538a27b0800000000000000
+      internalID: -5248237978691345293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite idle pj_3
+      rect:
+        serializedVersion: 2
+        x: 2052
+        y: 1143
+        width: 694
+        height: 1017
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2d49e87358f78660800000000000000
+      internalID: 7388146751119117615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite idle pj_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 55
+        width: 687
+        height: 1026
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d0f3aaa4419bbee0800000000000000
+      internalID: -1244241147931135786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite idle pj_5
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 32
+        width: 675
+        height: 1040
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fedd2a76da09a1c0800000000000000
+      internalID: -4492047237036253453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite idle pj_6
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 26
+        width: 666
+        height: 1051
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79f8f7cef7c340b00800000000000000
+      internalID: 793825954450345879
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
     nameFileIdTable:
-      SpirteSheetElGranjeroFrontalIdel_0: 636261234
-      SpirteSheetElGranjeroFrontalIdel_1: -838125004
-      SpirteSheetElGranjeroFrontalIdel_2: -774615339
-      SpirteSheetElGranjeroFrontalIdel_3: -110497011
-      SpirteSheetElGranjeroFrontalIdel_4: -995367945
+      sprite idle pj_0: 5193898847089326524
+      sprite idle pj_1: 7149498261245464275
+      sprite idle pj_2: -5248237978691345293
+      sprite idle pj_3: 7388146751119117615
+      sprite idle pj_4: -1244241147931135786
+      sprite idle pj_5: -4492047237036253453
+      sprite idle pj_6: 793825954450345879
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
