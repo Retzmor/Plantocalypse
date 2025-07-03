@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class PlayerLvl1 : MonoBehaviour
 {
     Rigidbody2D _rb;
+    Animator _animator;
     public float currenHealthPlayer;
     private float health = 120;
     [SerializeField] float movX = 0;
@@ -18,11 +19,12 @@ public class PlayerLvl1 : MonoBehaviour
     private float enfriamiento2 = -Mathf.Infinity;
     public float Health { get => health; set => health = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
-
+    public Animator Animator { get => _animator; set => _animator = value; }
 
     void Start()
     {
         Rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
         currenHealthPlayer = Health;
     }
 
@@ -32,14 +34,27 @@ public class PlayerLvl1 : MonoBehaviour
         movX = Input.GetAxis("Horizontal");
         movY = Input.GetAxis("Vertical");
 
-        //float movimiento = movX + movY;
+        float movimiento = movX + movY;
 
-        //if (movimiento != 0 && Time.time - coolDown >= enfriamiento)
-     //   {
+        if (movimiento != 0)
+        {
+            _animator.SetBool("Movimiento", true);
+            if (movX < 0)
+            {
+                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
+            else if (movX > 0)
+            {
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
             //ControladorAudios.Intance.EjecutarAudioUnaVez(caminar);
-          //  enfriamiento = Time.time;
+            //enfriamiento = Time.time;   
+        }
 
-        //}
+        else
+        {
+            _animator.SetBool("Movimiento", false);
+        }
     }
 
     private void FixedUpdate()

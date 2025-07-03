@@ -7,25 +7,25 @@ public class HealthGenerator : MonoBehaviour
     [SerializeField] private List<GameObject> curas = new List<GameObject>();
 
     private GameObject curaActual;
-    private bool esperandoNuevaCura = false;
 
     void Start()
     {
-        ActivarNuevaCura();
+        ActivarCuraAleatoria();
     }
 
     void Update()
     {
-        if (curaActual != null && !curaActual.activeSelf && !esperandoNuevaCura)
+        // Si la cura actual fue recogida (ya no está activa)
+        if (curaActual != null && !curaActual.activeSelf)
         {
-            esperandoNuevaCura = true;
+            ActivarCuraAleatoria();
         }
     }
 
-    void ActivarNuevaCura()
+    void ActivarCuraAleatoria()
     {
+        // Buscar todas las curas que están desactivadas
         List<GameObject> disponibles = new List<GameObject>();
-
         for (int i = 0; i < curas.Count; i++)
         {
             if (!curas[i].activeSelf)
@@ -34,16 +34,17 @@ public class HealthGenerator : MonoBehaviour
             }
         }
 
+        // Si no hay disponibles, salir
         if (disponibles.Count == 0)
         {
             Destroy(gameObject);
         }
 
+        // Elegir una aleatoria
         int indice = Random.Range(0, disponibles.Count);
-        GameObject nuevaCura = disponibles[indice];
+        curaActual = disponibles[indice];
 
-        nuevaCura.SetActive(true);
-        curaActual = nuevaCura;
-        esperandoNuevaCura = false;
+        // Activar la nueva cura
+        curaActual.SetActive(true);
     }
 }

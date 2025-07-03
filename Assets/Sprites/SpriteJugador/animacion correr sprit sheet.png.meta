@@ -186,6 +186,45 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -884,7 +923,38 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      animacion correr sprit sheet_0: 6868631901116612698
+      animacion correr sprit sheet_1: -4920273244040827098
+      animacion correr sprit sheet_10: 1685026524355729119
+      animacion correr sprit sheet_11: -8121013898093482350
+      animacion correr sprit sheet_12: 7481781230246810244
+      animacion correr sprit sheet_13: -9086834944328887425
+      animacion correr sprit sheet_14: 7294204219821249376
+      animacion correr sprit sheet_15: 8401380368226702051
+      animacion correr sprit sheet_16: -515655502005114522
+      animacion correr sprit sheet_17: -1556800396468612583
+      animacion correr sprit sheet_18: 3248170842587585533
+      animacion correr sprit sheet_19: 8361774468595495122
+      animacion correr sprit sheet_2: 4920086351814850721
+      animacion correr sprit sheet_20: -6043004349794077196
+      animacion correr sprit sheet_21: -3334576149023562180
+      animacion correr sprit sheet_22: -4343017834922337153
+      animacion correr sprit sheet_23: 8789248017459623853
+      animacion correr sprit sheet_24: -5048572747226918223
+      animacion correr sprit sheet_25: -6684230470029618794
+      animacion correr sprit sheet_26: -7759613514603365884
+      animacion correr sprit sheet_27: 1801594771099176571
+      animacion correr sprit sheet_28: 8876615892745194730
+      animacion correr sprit sheet_29: -7767596074925746222
+      animacion correr sprit sheet_3: 5515775882653597157
+      animacion correr sprit sheet_30: 5875555755478338029
+      animacion correr sprit sheet_4: -6395552689826538021
+      animacion correr sprit sheet_5: -4658632908206501571
+      animacion correr sprit sheet_6: 1927746693656759050
+      animacion correr sprit sheet_7: 387033320162923027
+      animacion correr sprit sheet_8: 2801453325143775623
+      animacion correr sprit sheet_9: 9071484096275329041
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
