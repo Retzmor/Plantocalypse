@@ -5,9 +5,11 @@ public class MushLv1 : MonoBehaviour
 {
     NavMeshAgent _agent;
     Animator _animator;
+    [SerializeField] PlayerLvl1 playerLvl1;
     [SerializeField] GameObject target;
     [SerializeField] GameObject zonaExplosion;
     [SerializeField] float radius;
+    [SerializeField] int damage;
     [SerializeField] LayerMask player;
 
     public NavMeshAgent Agent { get => _agent; set => _agent = value; }
@@ -45,6 +47,7 @@ public class MushLv1 : MonoBehaviour
 
     public void Destruir()
     {
-        gameObject.SetActive(false);
+        playerLvl1.RecibirDaño(damage);
+        Destroy(gameObject);
     }
 }

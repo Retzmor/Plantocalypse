@@ -6,7 +6,7 @@ public class PlayerLvl1 : MonoBehaviour
     Rigidbody2D _rb;
     Animator _animator;
     public float currenHealthPlayer;
-    private float health = 120000000;
+    private float health = 120;
     [SerializeField] float movX = 0;
     [SerializeField] float movY = 0;
     [SerializeField] float velocityPlayer;
@@ -26,6 +26,7 @@ public class PlayerLvl1 : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         currenHealthPlayer = Health;
+        barraVida.InicializarBarraVida(currenHealthPlayer);
     }
 
     // Update is called once per frame
@@ -64,13 +65,13 @@ public class PlayerLvl1 : MonoBehaviour
 
     public void RecibirDaño(int damage)
     {
+        currenHealthPlayer -= damage;
         barraVida.CambiarVidaActual(currenHealthPlayer);
         if (currenHealthPlayer != 100 && Time.time - coolDownPlayer >= enfriamiento2)
         {
             //ControladorAudios.Intance.EjecutarAudioUnaVez(recibirDaño);
             enfriamiento2 = Time.time;
         }
-        currenHealthPlayer -= damage;
         if (currenHealthPlayer <= 0)
         {
             Muerte("GameOver");

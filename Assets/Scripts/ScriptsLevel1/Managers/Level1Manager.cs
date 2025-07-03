@@ -35,7 +35,7 @@ public class Level1Manager : MonoBehaviour
         camerasManager.VolverACamaraJugador();
         camerasManager.ZoomOutInicio(10f);
         dialoguesManager.SkipButton.gameObject.SetActive(false);
-       randomGeneration.SetActive(true);
+        randomGeneration.SetActive(true);
         tiempoController.empezarTiempo = true;
     }
 

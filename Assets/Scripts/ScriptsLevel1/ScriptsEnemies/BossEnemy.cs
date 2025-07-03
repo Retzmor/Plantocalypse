@@ -13,7 +13,11 @@ public class BossEnemy : MonoBehaviour
     [SerializeField] GameObject limitBottom;
     [SerializeField] float radius;
     [SerializeField] bool estaActivo = false;
-    [SerializeField] GameObject mushroomCurrent;
+    [SerializeField] GameObject mushroomCurrent1;
+    [SerializeField] GameObject mushroomCurrent2;
+    [SerializeField] GameObject mushroomCurrent3;
+    [SerializeField] GameObject mushroomCurrent4;
+    [SerializeField] GameObject mushroomCurrent5;
 
     public Animator AnimatorBoss { get => _animator; set => _animator = value; }
     public float CurrentHealth { get => currentHealth; set => currentHealth = value; }
@@ -28,11 +32,21 @@ public class BossEnemy : MonoBehaviour
 
     private void Update()
     {
-        if(CurrentHealth < 60 && !mushroomCurrent.activeSelf)
+        if(CurrentHealth == 100 && !mushroomCurrent1.activeSelf && !mushroomCurrent2.activeSelf)
         {
-            _animator.SetBool("Mush", true);
-            mushroomCurrent.SetActive(true);
+            _animator.SetTrigger("Mush");
+            mushroomCurrent1.SetActive(true);
+            mushroomCurrent2.SetActive(true);
         }
+        else if (CurrentHealth == 60 && !mushroomCurrent3.activeSelf && !mushroomCurrent4.activeSelf && !mushroomCurrent5.activeSelf)
+        {
+            _animator.SetTrigger("Mush");
+            mushroomCurrent3.SetActive(true);
+            mushroomCurrent4.SetActive(true);
+            mushroomCurrent5.SetActive(true);
+        }
+
+
     }
 
     private void FixedUpdate()
@@ -52,7 +66,7 @@ public class BossEnemy : MonoBehaviour
 
     public void RecibirDaño(float damage)
     {
-        _animator.SetTrigger("RecibirDaño");
+       //_animator.SetTrigger("RecibirDaño");
         CurrentHealth -= damage;
     }
 
