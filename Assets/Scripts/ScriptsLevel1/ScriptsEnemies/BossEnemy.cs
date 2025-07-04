@@ -91,17 +91,11 @@ public class BossEnemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(estaActivo == false)
-        {
-            rb.linearVelocity = new Vector2(0, -5 * speed * Time.deltaTime);
-            limitBottom.transform.position = new Vector2(0, -5 * speed * Time.deltaTime);
-        }
+        if (meMori) return; // Evita que se mueva después de morir
 
-        else if (estaActivo == true)
-        {
-            rb.linearVelocity = new Vector2(0, 5 * speed * Time.deltaTime);
-            limitTop.transform.position = new Vector2(0, -5 * speed * Time.deltaTime);
-        }
+        float direccion = estaActivo ? 1f : -1f;
+        Vector2 nuevaPosicion = rb.position + Vector2.up * direccion * speed * Time.fixedDeltaTime;
+        rb.MovePosition(nuevaPosicion);
     }
 
     public void RecibirDaño(float damage)
