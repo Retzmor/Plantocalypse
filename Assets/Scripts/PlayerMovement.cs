@@ -7,6 +7,7 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    Animator _animator;
     Rigidbody2D _rb;
     public float currenHealthPlayer;
     private float health = 100;
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private float enfriamiento2 = -Mathf.Infinity;
     public float Health { get => health; set => health = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
+    public Animator AnimatorPlayer { get => _animator; set => _animator = value; }
 
     private void OnEnable()
     {
@@ -37,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         Rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
         currenHealthPlayer = Health;
         Rb.bodyType = RigidbodyType2D.Static;
     }
@@ -54,6 +57,26 @@ public class PlayerMovement : MonoBehaviour
             ControladorAudios.Intance.EjecutarAudioUnaVez(caminar);
             enfriamiento = Time.time;
 
+        }
+
+        if (movimiento != 0)
+        {
+            _animator.SetBool("Movimiento", true);
+            if (movX < 0)
+            {
+                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
+            else if (movX > 0)
+            {
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
+            //ControladorAudios.Intance.EjecutarAudioUnaVez(caminar);
+            //enfriamiento = Time.time;   
+        }
+
+        else
+        {
+            _animator.SetBool("Movimiento", false);
         }
     }
 

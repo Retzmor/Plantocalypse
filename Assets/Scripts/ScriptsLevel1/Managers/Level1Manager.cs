@@ -1,4 +1,7 @@
+using JetBrains.Annotations;
 using UnityEngine;
+using System.Collections;
+
 
 public class Level1Manager : MonoBehaviour
 {
@@ -7,6 +10,16 @@ public class Level1Manager : MonoBehaviour
     [SerializeField] private GameObject randomGeneration;
     [SerializeField] private GameObject player;
     [SerializeField] private TiempoController tiempoController;
+    [SerializeField] private RandomGeneration Random;
+    [SerializeField] private GameObject boss;
+    [SerializeField] private GameObject collider1;
+    [SerializeField] private GameObject collider2;
+    [SerializeField] private GameObject collider3;
+    [SerializeField] private GameObject collider4;
+    [SerializeField] private GameObject Panel;
+
+    public Transform posicionFinal;
+    public Cinemachine.CinemachineVirtualCamera camara;
 
     void Start()
     {
@@ -39,9 +52,29 @@ public class Level1Manager : MonoBehaviour
         tiempoController.empezarTiempo = true;
     }
 
-    private void JefeFinal()
+    public void JefeFinal()
     {
-        
+        Panel.SetActive(true);
+        player.transform.position = posicionFinal.position;
+        camara.OnTargetObjectWarped(player.transform, posicionFinal.position - player.transform.position);
+        camara.Follow = null;
+        camara.transform.position = new Vector3(posicionFinal.position.x, posicionFinal.position.y, camara.transform.position.z);
+        camara.m_Lens.OrthographicSize = 10f;
+        Random.DetenerGeneracion();
+        Random.LiberarTodosLosEnemigos();
+        randomGeneration.SetActive(false);
+        boss.SetActive(true);
+        collider1.SetActive(true);
+        collider2.SetActive(true);
+        collider3.SetActive(true);
+        collider4.SetActive(true);
+
+        StartCoroutine(ActivarPanel());
     }
 
+    IEnumerator ActivarPanel()
+    {
+        yield return new WaitForSeconds(5); 
+        Panel.SetActive(false);
+    }
 }

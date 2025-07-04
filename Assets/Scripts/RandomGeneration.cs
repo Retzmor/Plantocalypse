@@ -93,6 +93,29 @@ public class RandomGeneration : MonoBehaviour
         return total;
     }
 
+    public void DetenerGeneracion()
+    {
+        CancelInvoke(nameof(SpawnEnemy));
+    }
+
+    public void LiberarTodosLosEnemigos()
+    {
+        for (int i = 0; i < enemigos.Count; i++)
+        {
+            Enemy[] enemigosActivos = FindObjectsOfType<Enemy>();
+
+            foreach (Enemy enemigo in enemigosActivos)
+            {
+                if (enemigo.poolIndex == i)
+                {
+                    pools[i].Release(enemigo.gameObject);
+                }
+            }
+        }
+    }
+
+
+
     private Vector2 GetRandomPointInCollider(PolygonCollider2D collider)
     {
         Bounds bounds = collider.bounds;

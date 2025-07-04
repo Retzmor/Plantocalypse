@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class AttackPlayer : MonoBehaviour
 {
+    PlayerMovement playerMovement;
     public int damage = 5;
     [SerializeField] Transform playerPosition;
     [SerializeField] float radius;
     public LayerMask zoneAttack;
     [SerializeField] AudioClip ataque;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        playerMovement = GetComponent<PlayerMovement>();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P)) 
         {
             Attack();
+            playerMovement.AnimatorPlayer.SetTrigger("Atacando");
             ControladorAudios.Intance.EjecutarSonido(ataque);
         }
     }

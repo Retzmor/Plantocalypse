@@ -12,7 +12,6 @@ public class AttackBoss : MonoBehaviour
     [SerializeField] float damageRange;
     [SerializeField] LayerMask jugador;
     [SerializeField] GameObject zoneDamageRange;
-    [SerializeField] bool hacerDaño = false;
     [SerializeField] PlayerLvl1 playerLvl1;
     [SerializeField] float coolDownMelee;
     [SerializeField] float coolDownRange;
@@ -43,11 +42,6 @@ public class AttackBoss : MonoBehaviour
         else if (attackRange != null && puedeAtacarRange && !estaAtacandoRango)
         {
                 StartCoroutine(StartDamageRange());
-        }
-
-        else 
-        {
-            hacerDaño=false;
         }
     }
 
