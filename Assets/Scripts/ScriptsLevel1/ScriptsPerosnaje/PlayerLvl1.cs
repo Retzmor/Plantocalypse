@@ -20,6 +20,7 @@ public class PlayerLvl1 : MonoBehaviour
     [SerializeField] GameObject cura;
     [SerializeField] GameObject curaPlayer;
     [SerializeField] GameObject curaPlayer2;
+    private float enfriamiento = -Mathf.Infinity;
     public bool curar = false;
     public bool curar2 = false;
     public bool curar3 = false;
@@ -45,6 +46,13 @@ public class PlayerLvl1 : MonoBehaviour
 
         float movimiento = movX + movY;
 
+        if (movimiento != 0 && Time.time - coolDown >= enfriamiento && _rb.bodyType != RigidbodyType2D.Static)
+        {
+            ControladorAudios.Intance.EjecutarAudioUnaVez(clipPasos);
+            enfriamiento = Time.time;
+
+        }
+
         if (movimiento != 0)
         {
             _animator.SetBool("Movimiento", true);
@@ -56,7 +64,7 @@ public class PlayerLvl1 : MonoBehaviour
             {
                 transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             }
-            //ControladorAudios.Intance.ReproducirPasos(clipPasos);
+            
         }
 
         else
@@ -93,7 +101,7 @@ public class PlayerLvl1 : MonoBehaviour
         barraVida.CambiarVidaActual(currenHealthPlayer);
         if (currenHealthPlayer != 100 && Time.time - coolDownPlayer >= enfriamiento2)
         {
-            //ControladorAudios.Intance.EjecutarAudioUnaVez(recibirDaño);
+            ControladorAudios.Intance.EjecutarAudioUnaVez(recibirDaño);
             enfriamiento2 = Time.time;
         }
         if (currenHealthPlayer <= 0)
