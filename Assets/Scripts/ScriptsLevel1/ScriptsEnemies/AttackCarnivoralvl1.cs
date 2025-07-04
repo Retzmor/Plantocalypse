@@ -20,10 +20,10 @@ public class AttackCarnivoralvl1 : MonoBehaviour
     {
         Collider2D attackEnemy = Physics2D.OverlapCircle(zoneAttack.transform.position, radiusAttack, carnivora.LayermaskCarnivora);
 
-        if (attackEnemy && Time.time - coolDownAttack >= coolDown && carnivora.CurrentHealth > 0)
+        if (attackEnemy && Time.time >= coolDownAttack && carnivora.CurrentHealth > 0)
         {
             toAttack();
-            coolDownAttack = Time.time;
+            coolDownAttack = Time.time + coolDown;
         }
 
         else

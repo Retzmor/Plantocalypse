@@ -1,9 +1,9 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 
 public class AttackBoss : MonoBehaviour
 {
-    
+
     [SerializeField] GameObject zoneAttackMele;
     [SerializeField] GameObject zoneAttackRange;
     [SerializeField] int damage;
@@ -18,12 +18,33 @@ public class AttackBoss : MonoBehaviour
     private bool puedeAtacarMelee = true;
     private bool puedeAtacarRange = true;
     private bool estaAtacandoRango = false;
-
-
+    [SerializeField] GameObject enemy1;
+    [SerializeField] GameObject enemy2;
+    [SerializeField] GameObject enemy3;
+    [SerializeField] GameObject enemy4;
+    [SerializeField] GameObject enemy5;
+    [SerializeField] GameObject enemy6;
     BossEnemy bossEnemy;
     void Start()
     {
         bossEnemy = GetComponent<BossEnemy>();
+    }
+
+    private void Update()
+    {
+        if (bossEnemy.CurrentHealth == 60)
+        {
+            enemy1.SetActive(true);
+            enemy2.SetActive(true);
+            enemy3.SetActive(true);
+        }
+
+        if (bossEnemy.CurrentHealth == 30)
+        {
+            enemy4.SetActive(true);
+            enemy5.SetActive(true);
+            enemy6.SetActive(true);
+        }
     }
 
     private void FixedUpdate()
@@ -33,7 +54,7 @@ public class AttackBoss : MonoBehaviour
 
         if (attackMelee && puedeAtacarMelee)
         {
-            if(attackMelee)
+            if (attackMelee)
             {
                 StartCoroutine(StartDamageMele());
             }
@@ -41,7 +62,7 @@ public class AttackBoss : MonoBehaviour
 
         else if (attackRange != null && puedeAtacarRange && !estaAtacandoRango)
         {
-                StartCoroutine(StartDamageRange());
+            StartCoroutine(StartDamageRange());
         }
     }
 
@@ -64,15 +85,25 @@ public class AttackBoss : MonoBehaviour
 
     public void DamageMelee()
     {
-            playerLvl1.RecibirDaño(damage);
+        playerLvl1.RecibirDaÃ±o(damage);
     }
 
     public void DamageRange()
     {
         bool dentroDelRango = Physics2D.OverlapCircle(zoneDamageRange.transform.position, damageRange, jugador);
         {
-            playerLvl1.RecibirDaño(damage);
+            playerLvl1.RecibirDaÃ±o(damage);
         }
+    }
+
+    public void EliminarEnemigosInvocados()
+    {
+        Destroy(enemy1);
+        Destroy(enemy2);
+        Destroy(enemy3);
+        Destroy(enemy4);
+        Destroy(enemy5);
+        Destroy(enemy6);
     }
 
 

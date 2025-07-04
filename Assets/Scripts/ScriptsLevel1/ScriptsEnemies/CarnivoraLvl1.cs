@@ -19,13 +19,16 @@ public class CarnivoraLvl1 : MonoBehaviour
     public LayerMask LayermaskCarnivora { get => _layermask; set => _layermask = value; }
     public float CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
 
-    void Start()
+    private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
         Anim = GetComponent<Animator>();
-        CurrentHealth = health;
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
+    }
+    void Start()
+    {
+        CurrentHealth = health;
     }
     public void TakeDamage(int damage)
     {
@@ -39,13 +42,13 @@ public class CarnivoraLvl1 : MonoBehaviour
         else
         {
             isDeath = true;
-            _anim.SetBool("Death", true);
-            ControladorAudios.Intance.EjecutarSonido(muerte);
+            gameObject.SetActive(false);
+            //ControladorAudios.Intance.EjecutarSonido(muerte);
         }
     }
     public void Death()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
 }

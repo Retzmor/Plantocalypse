@@ -6,6 +6,7 @@ public class FollowEnemyLvl1 : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         carniovora = animator.GetComponent<CarnivoraLvl1>();
+        carniovora.transform.rotation = Quaternion.identity;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

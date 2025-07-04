@@ -10,6 +10,7 @@ public class RandomGeneration : MonoBehaviour
     [SerializeField] private float minSpawnTime;
     [SerializeField] private float maxSpawnTime;
     [SerializeField] private PolygonCollider2D spawnArea;
+    
 
     private List<ObjectPool<GameObject>> pools = new List<ObjectPool<GameObject>>();
 
@@ -36,6 +37,8 @@ public class RandomGeneration : MonoBehaviour
                 {
                     obj.SetActive(true);
                     activosPorPrefab[index]++;
+                    obj.transform.rotation = Quaternion.identity;
+                    obj.transform.eulerAngles = Vector3.zero;
                 },
                 actionOnRelease: (obj) =>
                 {
@@ -72,6 +75,17 @@ public class RandomGeneration : MonoBehaviour
         GameObject enemigo = pools[randomIndex].Get();
         enemigo.transform.position = spawnPosition;
 
+        if (enemigo.TryGetComponent<Enemy>(out var enemigoScript))
+        {
+            enemigoScript.ReiniciarEstado();
+            enemigoScript.ReiniciarTransform(spawnPosition);
+        }
+        // 🔥 Desactivamos rotación automática del NavMesh
+       if (enemigoScript.Agent != null)
+{
+    enemigoScript.Agent.updateRotation = false;
+    enemigoScript.Agent.updateUpAxis = false;
+}
         Invoke(nameof(SpawnEnemy), Random.Range(minSpawnTime, maxSpawnTime));
     }
 
@@ -100,17 +114,11 @@ public class RandomGeneration : MonoBehaviour
 
     public void LiberarTodosLosEnemigos()
     {
-        for (int i = 0; i < enemigos.Count; i++)
-        {
-            Enemy[] enemigosActivos = FindObjectsOfType<Enemy>();
+        GameObject[] enemigosGO = GameObject.FindGameObjectsWithTag("Enemigo");
 
-            foreach (Enemy enemigo in enemigosActivos)
-            {
-                if (enemigo.poolIndex == i)
-                {
-                    pools[i].Release(enemigo.gameObject);
-                }
-            }
+        foreach (GameObject enemigo in enemigosGO)
+        {
+            Destroy(enemigo);
         }
     }
 

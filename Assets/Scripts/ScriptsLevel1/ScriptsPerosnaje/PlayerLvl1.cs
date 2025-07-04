@@ -1,3 +1,4 @@
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +17,12 @@ public class PlayerLvl1 : MonoBehaviour
     //[SerializeField] AudioClip caminar;
     [SerializeField] float coolDown;
     [SerializeField] float coolDownPlayer;
+    [SerializeField] GameObject cura;
+    [SerializeField] GameObject curaPlayer;
+    [SerializeField] GameObject curaPlayer2;
+    public bool curar = false;
+    public bool curar2 = false;
+    public bool curar3 = false;
     private float enfriamiento2 = -Mathf.Infinity;
     [SerializeField] private AudioClip clipPasos;
     public float Health { get => health; set => health = value; }
@@ -49,14 +56,30 @@ public class PlayerLvl1 : MonoBehaviour
             {
                 transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             }
-            ControladorAudios.Intance.ReproducirPasos(clipPasos);
+            //ControladorAudios.Intance.ReproducirPasos(clipPasos);
         }
 
         else
         {
-            ControladorAudios.Intance.DetenerPasos();
+            //ControladorAudios.Intance.DetenerPasos();
             _animator.SetBool("Movimiento", false);
         }
+
+        if (currenHealthPlayer == 60 && curar)
+        {
+            cura.SetActive(true);
+        }
+
+        if (currenHealthPlayer == 20 && curar2)
+        {
+            cura.SetActive(true);
+        }
+
+        if (currenHealthPlayer == 40 && curar3)
+        {
+            cura.SetActive(true);
+        }
+
     }
 
     private void FixedUpdate()
@@ -70,13 +93,20 @@ public class PlayerLvl1 : MonoBehaviour
         barraVida.CambiarVidaActual(currenHealthPlayer);
         if (currenHealthPlayer != 100 && Time.time - coolDownPlayer >= enfriamiento2)
         {
-            ControladorAudios.Intance.EjecutarAudioUnaVez(recibirDaño);
+            //ControladorAudios.Intance.EjecutarAudioUnaVez(recibirDaño);
             enfriamiento2 = Time.time;
         }
         if (currenHealthPlayer <= 0)
         {
             Muerte("GameOver");
         }
+    }
+
+    public void CurarActivar()
+    {
+        curar = true;
+        curar2 = true;
+        curar3 = true;
     }
 
     public void Curar(int cura)

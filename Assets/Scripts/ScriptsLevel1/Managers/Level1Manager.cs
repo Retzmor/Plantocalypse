@@ -9,6 +9,7 @@ public class Level1Manager : MonoBehaviour
     [SerializeField] private CamerasManagers camerasManager;
     [SerializeField] private GameObject randomGeneration;
     [SerializeField] private GameObject player;
+    [SerializeField] private PlayerLvl1 playerLvl1;
     [SerializeField] private TiempoController tiempoController;
     [SerializeField] private RandomGeneration Random;
     [SerializeField] private GameObject boss;
@@ -17,6 +18,7 @@ public class Level1Manager : MonoBehaviour
     [SerializeField] private GameObject collider3;
     [SerializeField] private GameObject collider4;
     [SerializeField] private GameObject Panel;
+    [SerializeField] private GameObject barraVida;
 
     public Transform posicionFinal;
     public Cinemachine.CinemachineVirtualCamera camara;
@@ -26,6 +28,7 @@ public class Level1Manager : MonoBehaviour
         dialoguesManager.OnDialoguesFinished += EmpezarJuego;
         tiempoController.seAcaboElTiempo += JefeFinal;
         InicioDeNivel();
+
     }
 
     public void InicioDeNivel()
@@ -68,8 +71,9 @@ public class Level1Manager : MonoBehaviour
         collider2.SetActive(true);
         collider3.SetActive(true);
         collider4.SetActive(true);
-
         StartCoroutine(ActivarPanel());
+        playerLvl1.CurarActivar();
+        barraVida.SetActive(true);
     }
 
     IEnumerator ActivarPanel()

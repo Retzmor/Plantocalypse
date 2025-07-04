@@ -21,13 +21,16 @@ public class HidraLvl1 : MonoBehaviour
     public NavMeshAgent Agent { get => _agent; set => _agent = value; }
     public LayerMask LayerMaskHidra { get => _layerMask; set => _layerMask = value; }
 
-    void Start()
+    private void Awake()
     {
-        CurrentHealth = health;
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
+    }
+    void Start()
+    {
+        CurrentHealth = health;
     }
     public void TakeDamage(int damage)
     {
@@ -38,19 +41,19 @@ public class HidraLvl1 : MonoBehaviour
 
             CurrentHealth -= damage;
             _animator.SetTrigger("RecibirDaño");
-            ControladorAudios.Intance.EjecutarSonido(recibirDaño);
+            //ControladorAudios.Intance.EjecutarSonido(recibirDaño);
         }
 
         else
         {
             isDeath = true;
-            _animator.SetBool("Muerte", true);
+            gameObject.SetActive(false);
            // ControladorAudios.Intance.EjecutarSonido(muerte);
         }
     }
 
     public void Death()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

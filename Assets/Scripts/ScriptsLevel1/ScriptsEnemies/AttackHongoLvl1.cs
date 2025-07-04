@@ -18,11 +18,11 @@ public class AttackHongoLvl1 : MonoBehaviour
     private void FixedUpdate()
     {
         Collider2D attack = Physics2D.OverlapCircle(zoneAttack.transform.position, radiusAttack, hongo.LayermaskMushRoom);
-        if (attack && Time.time - coolDownAttack >= coolDown && hongo.CurrentHealth > 0)
+        if (attack && Time.time >= coolDownAttack && hongo.CurrentHealth > 0)
         {
             ToAttack();
             hongo.AnimatorMushroom.SetBool("Follow", false);
-            coolDownAttack = Time.time;
+            coolDownAttack = Time.time + coolDown;
         }
 
         else

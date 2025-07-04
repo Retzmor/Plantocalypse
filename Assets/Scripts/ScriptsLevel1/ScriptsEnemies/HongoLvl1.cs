@@ -20,12 +20,16 @@ public class HongoLvl1 : MonoBehaviour
     public float CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    private void Awake()
     {
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
+    }
+    void Start()
+    { 
         CurrentHealth = health;
     }
 
@@ -43,12 +47,12 @@ public class HongoLvl1 : MonoBehaviour
         else
         {
             isDeath = true;
-            _animator.SetBool("Death", true);
-            ControladorAudios.Intance.EjecutarSonido(muerte);
+            gameObject.SetActive(false);
+            //ControladorAudios.Intance.EjecutarSonido(muerte);
         }
     }
     public void Death()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

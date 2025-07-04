@@ -19,7 +19,7 @@ public class AttackPlayerLvl1 : MonoBehaviour
         {
             Attack();
             playerLvl1.Animator.SetTrigger("Atacando");
-            ControladorAudios.Intance.EjecutarSonido(ataque);
+           // ControladorAudios.Intance.EjecutarSonido(ataque);
         }
     }
 

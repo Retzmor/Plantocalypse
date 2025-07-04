@@ -15,7 +15,7 @@ public class Coin : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            ControladorAudios.Intance.EjecutarSonido(sonidoCuracion);
+            //ControladorAudios.Intance.EjecutarSonido(sonidoCuracion);
             collision.GetComponent<PlayerLvl1>().Curar(curar);
             gameObject.SetActive(false);
         }
