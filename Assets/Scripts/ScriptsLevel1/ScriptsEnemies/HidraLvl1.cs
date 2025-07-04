@@ -11,7 +11,7 @@ public class HidraLvl1 : MonoBehaviour
     private float currentHealth;
     bool isDeath = false;
     //[SerializeField] AudioClip muerte;
-    //[SerializeField] AudioClip recibirDaño;
+    [SerializeField] AudioClip recibirDaño;
 
 
     public Animator AnimatorHidra { get => _animator; set => _animator = value; }
@@ -37,14 +37,13 @@ public class HidraLvl1 : MonoBehaviour
 
             CurrentHealth -= damage;
             _animator.SetTrigger("RecibirDaño");
-            //ControladorAudios.Intance.EjecutarSonido(recibirDaño);
+            ControladorAudios.Intance.EjecutarSonido(recibirDaño);
         }
 
         else
         {
             isDeath = true;
             _animator.SetBool("Muerte", true);
-           // tutorialManager.EnemigoDerrotado();
            // ControladorAudios.Intance.EjecutarSonido(muerte);
         }
     }

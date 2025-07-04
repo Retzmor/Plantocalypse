@@ -12,11 +12,12 @@ public class PlayerLvl1 : MonoBehaviour
     [SerializeField] float velocityPlayer;
     [SerializeField] BarraVIda barraVida;
     //[SerializeField] AudioClip muerte;
-    //[SerializeField] AudioClip recibirDaño;
+    [SerializeField] AudioClip recibirDaño;
     //[SerializeField] AudioClip caminar;
     [SerializeField] float coolDown;
     [SerializeField] float coolDownPlayer;
     private float enfriamiento2 = -Mathf.Infinity;
+    [SerializeField] private AudioClip clipPasos;
     public float Health { get => health; set => health = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
     public Animator Animator { get => _animator; set => _animator = value; }
@@ -48,12 +49,12 @@ public class PlayerLvl1 : MonoBehaviour
             {
                 transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             }
-            //ControladorAudios.Intance.EjecutarAudioUnaVez(caminar);
-            //enfriamiento = Time.time;   
+            ControladorAudios.Intance.ReproducirPasos(clipPasos);
         }
 
         else
         {
+            ControladorAudios.Intance.DetenerPasos();
             _animator.SetBool("Movimiento", false);
         }
     }
@@ -69,7 +70,7 @@ public class PlayerLvl1 : MonoBehaviour
         barraVida.CambiarVidaActual(currenHealthPlayer);
         if (currenHealthPlayer != 100 && Time.time - coolDownPlayer >= enfriamiento2)
         {
-            //ControladorAudios.Intance.EjecutarAudioUnaVez(recibirDaño);
+            ControladorAudios.Intance.EjecutarAudioUnaVez(recibirDaño);
             enfriamiento2 = Time.time;
         }
         if (currenHealthPlayer <= 0)

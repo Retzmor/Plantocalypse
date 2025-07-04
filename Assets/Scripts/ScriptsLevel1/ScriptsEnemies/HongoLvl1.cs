@@ -10,7 +10,7 @@ public class HongoLvl1 : MonoBehaviour
     private bool isDeath = false;
     [SerializeField] LayerMask layermask;
     [SerializeField] GameObject _target;
-    //[SerializeField] AudioClip muerte;
+    [SerializeField] AudioClip muerte;
 
 
     public Animator AnimatorMushroom { get => _animator; set => _animator = value; }
@@ -44,7 +44,7 @@ public class HongoLvl1 : MonoBehaviour
         {
             isDeath = true;
             _animator.SetBool("Death", true);
-           // ControladorAudios.Intance.EjecutarSonido(muerte);
+            ControladorAudios.Intance.EjecutarSonido(muerte);
         }
     }
 }

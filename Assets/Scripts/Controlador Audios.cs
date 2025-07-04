@@ -3,7 +3,7 @@ using UnityEngine;
 public class ControladorAudios : MonoBehaviour
 {
     public static  ControladorAudios Intance;
-
+    public AudioSource pasosSource;
     private AudioSource audioSource;
 
     private void Awake()
@@ -31,6 +31,24 @@ public class ControladorAudios : MonoBehaviour
     {
         audioSource.PlayOneShot(sonido2);
 
+    }
+
+    public void ReproducirPasos(AudioClip clip)
+    {
+        if (!pasosSource.isPlaying)
+        {
+            pasosSource.clip = clip;
+            pasosSource.loop = true;
+            pasosSource.Play();
+        }
+    }
+
+    public void DetenerPasos()
+    {
+        if (pasosSource.isPlaying)
+        {
+            pasosSource.Stop();
+        }
     }
 
 }

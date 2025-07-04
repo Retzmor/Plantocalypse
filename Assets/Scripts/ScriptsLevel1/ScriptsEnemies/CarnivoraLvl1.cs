@@ -10,7 +10,7 @@ public class CarnivoraLvl1 : MonoBehaviour
     [SerializeField] float _currentHealth;
     [SerializeField] LayerMask _layermask;
     [SerializeField] GameObject _player;
-    //[SerializeField] AudioClip muerte;
+    [SerializeField] AudioClip muerte;
     private bool isDeath = false;
 
     public NavMeshAgent Agent { get => _agent; set => _agent = value; }
@@ -40,7 +40,7 @@ public class CarnivoraLvl1 : MonoBehaviour
         {
             isDeath = true;
             Die();
-           // ControladorAudios.Intance.EjecutarSonido(muerte);
+           ControladorAudios.Intance.EjecutarSonido(muerte);
         }
     }
 

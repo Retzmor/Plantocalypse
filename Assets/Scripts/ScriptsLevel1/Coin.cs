@@ -4,6 +4,7 @@ public class Coin : MonoBehaviour
 {
     [SerializeField] float speed = 10;
     [SerializeField] int curar = 30;
+    [SerializeField] private AudioClip sonidoCuracion;
     private void Update()
     {
         transform.Rotate(new Vector3(0f, 10f, 0f) * speed * Time.deltaTime);
@@ -11,10 +12,10 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Hice collision");
+
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Estoy en el if");
+            ControladorAudios.Intance.EjecutarSonido(sonidoCuracion);
             collision.GetComponent<PlayerLvl1>().Curar(curar);
             gameObject.SetActive(false);
         }

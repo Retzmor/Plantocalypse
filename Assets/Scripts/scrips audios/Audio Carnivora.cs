@@ -8,11 +8,10 @@ public class AudioCarnivora : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        
-
+    
         if (collision.CompareTag("Player"))
         {
-           // ControladorAudios.Intance.EjecutarSonido(sonido);
+           ControladorAudios.Intance.EjecutarSonido(sonido);
         }
     }
 }

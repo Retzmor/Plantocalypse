@@ -894,7 +894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8972054116787179584, guid: 4894d5b2d891ba041957e61f1786921b, type: 3}
       propertyPath: orthographic size
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1431,6 +1431,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _target: {fileID: 1232862348}
+  muerte: {fileID: 8300000, guid: 81fc74a8ddbecf643a91318f322a918b, type: 3}
 --- !u!114 &381787725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1690,6 +1691,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &459219840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 459219842}
+  - component: {fileID: 459219841}
+  m_Layer: 0
+  m_Name: ControladorDeAudios
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &459219841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459219840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7134aa5fe52cd834f9edf084550720e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &459219842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459219840}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1583.0789, y: 487.87863, z: -8.014324}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &464871850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1844,6 +1889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   curar: 30
+  sonidoCuracion: {fileID: 8300000, guid: a1b2ef4f8ad586849a535051d0a08500, type: 3}
 --- !u!212 &482356597
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2430,6 +2476,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _player: {fileID: 1232862348}
+  muerte: {fileID: 8300000, guid: 81fc74a8ddbecf643a91318f322a918b, type: 3}
 --- !u!1 &589687682 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1804361830846005746, guid: c6bcb6e93ea417b48823a2e8e2691c3f, type: 3}
@@ -2487,6 +2534,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   health: 120
+  "recibirDa\xF1o": {fileID: 8300000, guid: b088e9b9c7df42e4b9b8defd2a3a66fb, type: 3}
 --- !u!114 &604001533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2623,6 +2671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   curar: 30
+  sonidoCuracion: {fileID: 8300000, guid: a1b2ef4f8ad586849a535051d0a08500, type: 3}
 --- !u!212 &618102603
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -49656,7 +49705,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   zoneDamageRange: {fileID: 986633009}
-  "hacerDa\xF1o": 0
   playerLvl1: {fileID: 1232862351}
   coolDownMelee: 4
   coolDownRange: 3
@@ -49860,6 +49908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   curar: 30
+  sonidoCuracion: {fileID: 8300000, guid: a1b2ef4f8ad586849a535051d0a08500, type: 3}
 --- !u!212 &795441583
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -50234,6 +50283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   curar: 30
+  sonidoCuracion: {fileID: 8300000, guid: a1b2ef4f8ad586849a535051d0a08500, type: 3}
 --- !u!60 &851274863
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -51392,6 +51442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   curar: 30
+  sonidoCuracion: {fileID: 8300000, guid: a1b2ef4f8ad586849a535051d0a08500, type: 3}
 --- !u!212 &937070826
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -62827,6 +62878,7 @@ MonoBehaviour:
   zoneAttack:
     serializedVersion: 2
     m_Bits: 128
+  ataque: {fileID: 8300000, guid: 3821e75c30f87584c8b014173801ef02, type: 3}
 --- !u!114 &1232862351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62844,8 +62896,10 @@ MonoBehaviour:
   movY: 0
   velocityPlayer: 6
   barraVida: {fileID: 1070533294}
+  "recibirDa\xF1o": {fileID: 8300000, guid: a923e41a40e6b5f479e45c34a5dd9662, type: 3}
   coolDown: 1
   coolDownPlayer: 1
+  clipPasos: {fileID: 8300000, guid: 2bea69c177dc63b4fb17cdd1790533da, type: 3}
 --- !u!1001 &1241628260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62916,7 +62970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7200005900138981545, guid: 0ca3ff605462c9442901104cb31771b7, type: 3}
       propertyPath: m_Lens.OrthographicSize
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -63126,6 +63180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   curar: 30
+  sonidoCuracion: {fileID: 8300000, guid: a1b2ef4f8ad586849a535051d0a08500, type: 3}
 --- !u!212 &1277717662
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -63500,6 +63555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   curar: 30
+  sonidoCuracion: {fileID: 8300000, guid: a1b2ef4f8ad586849a535051d0a08500, type: 3}
 --- !u!212 &1360947313
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -63678,6 +63734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   curar: 30
+  sonidoCuracion: {fileID: 8300000, guid: a1b2ef4f8ad586849a535051d0a08500, type: 3}
 --- !u!212 &1402609443
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -68287,3 +68344,4 @@ SceneRoots:
   - {fileID: 2095390622}
   - {fileID: 2039505438}
   - {fileID: 57378358}
+  - {fileID: 459219842}

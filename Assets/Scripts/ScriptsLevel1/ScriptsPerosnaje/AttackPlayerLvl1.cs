@@ -7,7 +7,7 @@ public class AttackPlayerLvl1 : MonoBehaviour
     [SerializeField] Transform attackPosition;
     [SerializeField] float radius;
     public LayerMask zoneAttack;
-    //[SerializeField] AudioClip ataque;
+    [SerializeField] AudioClip ataque;
 
     private void Start()
     {
@@ -19,7 +19,7 @@ public class AttackPlayerLvl1 : MonoBehaviour
         {
             Attack();
             playerLvl1.Animator.SetTrigger("Atacando");
-            //ControladorAudios.Intance.EjecutarSonido(ataque);
+            ControladorAudios.Intance.EjecutarSonido(ataque);
         }
     }
 

@@ -746,6 +746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f4cd0e9baea06a4582b4d83b678eb30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pasosSource: {fileID: 403197533}
 --- !u!82 &403197533
 AudioSource:
   m_ObjectHideFlags: 0
