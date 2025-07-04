@@ -47,4 +47,8 @@ public class HongoLvl1 : MonoBehaviour
             ControladorAudios.Intance.EjecutarSonido(muerte);
         }
     }
+    public void Death()
+    {
+        Destroy(gameObject);
+    }
 }

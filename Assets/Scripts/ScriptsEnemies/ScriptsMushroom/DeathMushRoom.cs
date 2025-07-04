@@ -18,7 +18,7 @@ public class DeathMushRoom : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-         Destroy(mEnemy.gameObject);
+         //Destroy(mEnemy.gameObject);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

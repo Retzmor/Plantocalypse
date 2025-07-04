@@ -70,9 +70,15 @@ public class HidraEnemy : MonoBehaviour
         {
             isDeath = true;
             _animator.SetBool("Muerte", true);
+            _animator.SetBool("Seguir", false);
             tutorialManager.EnemigoDerrotado();
             ControladorAudios.Intance.EjecutarSonido(muerte);
         }
+    }
+
+    public void Death()
+    {
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmos()

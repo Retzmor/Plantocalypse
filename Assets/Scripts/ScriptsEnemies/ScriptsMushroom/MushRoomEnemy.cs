@@ -66,6 +66,11 @@ public class MushRoomEnemy : MonoBehaviour
         }
     }
 
+    public void Death()
+    {
+        Destroy(gameObject);
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

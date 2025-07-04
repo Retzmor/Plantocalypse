@@ -57,15 +57,15 @@ public class Carnivora : MonoBehaviour
         else
         {
             isDeath = true;
-            Die();
+            _anim.SetBool("Death", true);
             ControladorAudios.Intance.EjecutarSonido(muerte);
+            manager.EnemigoDerrotado();
         } 
     }
 
     public void Die()
     {
-        _anim.SetBool("Death", true);
-        manager.EnemigoDerrotado();
+        Destroy(gameObject);  
     }
 
     private void OnDrawGizmos()

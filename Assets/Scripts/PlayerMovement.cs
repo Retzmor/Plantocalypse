@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         _animator = GetComponent<Animator>();
         currenHealthPlayer = Health;
         Rb.bodyType = RigidbodyType2D.Static;
+        barraVida.InicializarBarraVida(currenHealthPlayer);
     }
 
     // Update is called once per frame
@@ -70,8 +71,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             }
-            //ControladorAudios.Intance.EjecutarAudioUnaVez(caminar);
-            //enfriamiento = Time.time;   
         }
 
         else
@@ -89,13 +88,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void RecibirDaño(int damage)
     {
-        if(currenHealthPlayer != 100 && Time.time - coolDownPlayer >= enfriamiento2)
+        currenHealthPlayer -= damage;
+        barraVida.CambiarVidaActual(currenHealthPlayer);
+        _animator.SetTrigger("Hit");
+        if (currenHealthPlayer != 100 && Time.time - coolDownPlayer >= enfriamiento2)
         {
             ControladorAudios.Intance.EjecutarAudioUnaVez(recibirDaño);
             enfriamiento2 = Time.time;
-        }
-        barraVida.CambiarVidaActual(currenHealthPlayer);
-        currenHealthPlayer -= damage;
+        } 
         if (currenHealthPlayer <= 0)
         {
             Muerte("GameOver");

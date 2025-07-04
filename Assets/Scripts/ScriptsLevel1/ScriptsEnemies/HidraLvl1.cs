@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -46,5 +47,10 @@ public class HidraLvl1 : MonoBehaviour
             _animator.SetBool("Muerte", true);
            // ControladorAudios.Intance.EjecutarSonido(muerte);
         }
+    }
+
+    public void Death()
+    {
+        Destroy(gameObject);
     }
 }

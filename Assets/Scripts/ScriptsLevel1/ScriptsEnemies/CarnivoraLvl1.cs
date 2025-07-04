@@ -39,14 +39,13 @@ public class CarnivoraLvl1 : MonoBehaviour
         else
         {
             isDeath = true;
-            Die();
-           ControladorAudios.Intance.EjecutarSonido(muerte);
+            _anim.SetBool("Death", true);
+            ControladorAudios.Intance.EjecutarSonido(muerte);
         }
     }
-
-    public void Die()
+    public void Death()
     {
-        _anim.SetBool("Death", true);
+        Destroy(gameObject);
     }
 
 }
