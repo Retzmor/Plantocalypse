@@ -1372,7 +1372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8969895053001366545, guid: 0b15fd00a21d6124f9db7325ebb973b0, type: 3}
       propertyPath: m_Name
-      value: BarraDeVida (1)
+      value: VidaEneny
       objectReference: {fileID: 0}
     - target: {fileID: 8969895053001366545, guid: 0b15fd00a21d6124f9db7325ebb973b0, type: 3}
       propertyPath: m_IsActive
@@ -2007,6 +2007,8 @@ MonoBehaviour:
   collider4: {fileID: 1228373003}
   Panel: {fileID: 962126024}
   barraVida: {fileID: 400719942}
+  musica1: {fileID: 8300000, guid: 5b6346a5e19147e43900089f66d8a222, type: 3}
+  musica2: {fileID: 8300000, guid: 06905257712329044806476957cc1d5e, type: 3}
   posicionFinal: {fileID: 986201523}
   camara: {fileID: 42363567}
 --- !u!4 &455506545
@@ -49923,6 +49925,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 3ed81cf0ebaa07a40addc38164c6d3c1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 754882237}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 3ed81cf0ebaa07a40addc38164c6d3c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 754882238}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 3ed81cf0ebaa07a40addc38164c6d3c1, type: 3}
 --- !u!1 &754882231 stripped
 GameObject:
@@ -49993,10 +49998,10 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.22, y: 1.95}
+    newSize: {x: 1.22, y: 1.95}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -50098,6 +50103,61 @@ MonoBehaviour:
   enemy4: {fileID: 913998566}
   enemy5: {fileID: 1338807685}
   enemy6: {fileID: 1683323374}
+--- !u!212 &754882238
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754882231}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 2893505757854705993, guid: 3ed81cf0ebaa07a40addc38164c6d3c1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.22, y: 1.95}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &756110689
 GameObject:
   m_ObjectHideFlags: 0
@@ -67409,7 +67469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1610477175
 RectTransform:
   m_ObjectHideFlags: 0
@@ -67493,6 +67553,37 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1646085418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1646085419}
+  m_Layer: 0
+  m_Name: Musica
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1646085419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646085418}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1664857545
 GameObject:
   m_ObjectHideFlags: 0
@@ -71036,6 +71127,7 @@ SceneRoots:
   - {fileID: 1587195085}
   - {fileID: 589687678}
   - {fileID: 754882230}
+  - {fileID: 1135951238}
   - {fileID: 2059881331}
   - {fileID: 1318044075}
   - {fileID: 1907831576}
@@ -71057,4 +71149,4 @@ SceneRoots:
   - {fileID: 2039505438}
   - {fileID: 57378358}
   - {fileID: 459219842}
-  - {fileID: 1135951238}
+  - {fileID: 1646085419}

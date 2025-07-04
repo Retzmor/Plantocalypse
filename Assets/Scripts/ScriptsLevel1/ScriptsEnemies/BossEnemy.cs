@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class BossEnemy : MonoBehaviour
 {
-    Rigidbody2D rb;
-    Animator _animator;
+    private Rigidbody2D rb;
+    private Animator _animator;
     [SerializeField] float health = 120;
     [SerializeField] float currentHealth;
     [SerializeField] float speed;
@@ -21,6 +21,7 @@ public class BossEnemy : MonoBehaviour
     [SerializeField] GameObject mushroomCurrent5;
     [SerializeField] RandomGeneration randomGeneration;
     [SerializeField] BarraVIda barravida;
+
     private bool esVulnerable = false;
     private bool meMori = false;
     private float tiempoAcumulado = 0f;
@@ -31,14 +32,13 @@ public class BossEnemy : MonoBehaviour
     public Animator AnimatorBoss { get => _animator; set => _animator = value; }
     public float CurrentHealth { get => currentHealth; set => currentHealth = value; }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        CurrentHealth = health;
-        barravida.InicializarBarraVida(CurrentHealth);
         rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-
+        CurrentHealth = health;
+        barravida.InicializarBarraVida(CurrentHealth);
+       
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         coloresOriginales = new Color[spriteRenderers.Length];
 
@@ -48,12 +48,11 @@ public class BossEnemy : MonoBehaviour
         }
     }
 
-    private void Update()
+    void Update()
     {
-        if (CurrentHealth < health && meMori == false)
+        if (CurrentHealth < health && !meMori)
         {
             tiempoAcumulado += Time.deltaTime;
-
             if (tiempoAcumulado >= 1f)
             {
                 CurrentHealth += 2;
@@ -61,26 +60,17 @@ public class BossEnemy : MonoBehaviour
                     CurrentHealth = health;
 
                 barravida.CambiarVidaActual(CurrentHealth);
-
                 tiempoAcumulado = 0f;
             }
         }
 
-        if (
-     CurrentHealth == 100 &&
-     mushroomCurrent1 != null && mushroomCurrent2 != null &&
-     !mushroomCurrent1.activeSelf && !mushroomCurrent2.activeSelf
- )
+        if (CurrentHealth == 100 && !mushroomCurrent1.activeSelf && !mushroomCurrent2.activeSelf)
         {
             _animator.SetTrigger("Mush");
             mushroomCurrent1.SetActive(true);
             mushroomCurrent2.SetActive(true);
         }
-        else if (
-     CurrentHealth == 60 &&
-     mushroomCurrent3 != null && mushroomCurrent4 != null && mushroomCurrent5 != null &&
-     !mushroomCurrent3.activeSelf && !mushroomCurrent4.activeSelf && !mushroomCurrent5.activeSelf
- )
+        else if (CurrentHealth == 60 && !mushroomCurrent3.activeSelf && !mushroomCurrent4.activeSelf && !mushroomCurrent5.activeSelf)
         {
             _animator.SetTrigger("Mush");
             mushroomCurrent3.SetActive(true);
@@ -91,47 +81,53 @@ public class BossEnemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (meMori) return; // Evita que se mueva después de morir
+        if (estaActivo == false)
+        {
+            rb.linearVelocity = new Vector2(0, -5 * speed * Time.deltaTime);
+            
+        }
 
-        float direccion = estaActivo ? 1f : -1f;
-        Vector2 nuevaPosicion = rb.position + Vector2.up * direccion * speed * Time.fixedDeltaTime;
-        rb.MovePosition(nuevaPosicion);
+        else if (estaActivo == true)
+        {
+            rb.linearVelocity = new Vector2(0, 5 * speed * Time.deltaTime);
+            
+        }
     }
 
     public void RecibirDaño(float damage)
     {
         if (!esVulnerable) return;
+
         CurrentHealth -= damage;
         barravida.CambiarVidaActual(CurrentHealth);
 
-        if (currentHealth < 0)
+        if (CurrentHealth <= 0)
         {
             _animator.SetBool("Death", true);
-            damage = 0;
             meMori = true;
-            randomGeneration.LiberarTodosLosEnemigos();
-            AttackBoss attackScript = GetComponent<AttackBoss>();
-            if (attackScript != null)
-            {
-                attackScript.enabled = false;
-                attackScript.EliminarEnemigosInvocados();
-            }
+            CambioDeEscena();
         }
     }
 
     public void ActivarVulnerabilidad(float duracion)
     {
         esVulnerable = true;
-
-        foreach (var sr in spriteRenderers)
+        if (spriteRenderers == null || spriteRenderers.Length == 0)
         {
-            sr.color = Color.red; 
-
-        StartCoroutine(DesactivarVulnerabilidad(duracion));
+            Debug.LogWarning("No se encontraron SpriteRenderers en el boss.");
         }
+        else
+        {
+            foreach (var sr in spriteRenderers)
+            {
+                sr.color = Color.red;
+            }
+        }
+            
+        StartCoroutine(DesactivarVulnerabilidad(duracion));
     }
 
-    private IEnumerator DesactivarVulnerabilidad(float duracion)
+    IEnumerator DesactivarVulnerabilidad(float duracion)
     {
         yield return new WaitForSeconds(duracion);
         esVulnerable = false;
@@ -142,30 +138,33 @@ public class BossEnemy : MonoBehaviour
         }
     }
 
+    public void CambioDeEscena()
+    {
+        GameAdministrator.Instance.StageChange("Final");
+    }
+
     public void SerInnmune()
     {
         ActivarVulnerabilidad(3f);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("colisionAbajo"))
+        if (other.CompareTag("colisionAbajo"))
         {
             estaActivo = true;
         }
-
-        else if(other.CompareTag("colisionArriba"))
+        else if (other.CompareTag("colisionArriba"))
         {
             estaActivo = false;
         }
     }
 
-    private void OnDrawGizmos()
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-
         Gizmos.DrawWireSphere(limitTop.transform.position, radius);
         Gizmos.DrawWireSphere(limitBottom.transform.position, radius);
-
     }
 }
+

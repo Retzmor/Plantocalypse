@@ -11,6 +11,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject enemigo1;
     [SerializeField] private GameObject enemigo2;
     [SerializeField] private GameObject enemigo3;
+    [SerializeField] AudioClip musicaTutorial;
 
     public delegate void PlayerMovementDelegate(bool activarRb);
     public static event PlayerMovementDelegate playerMovementDelegate;
@@ -20,6 +21,7 @@ public class TutorialManager : MonoBehaviour
     void Start()
     {
         IniciarTutorial();
+        AudioManager.Instance.PlayMusic(musicaTutorial);
     }
 
     public void IniciarTutorial()

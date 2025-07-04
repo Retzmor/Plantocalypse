@@ -19,6 +19,8 @@ public class Level1Manager : MonoBehaviour
     [SerializeField] private GameObject collider4;
     [SerializeField] private GameObject Panel;
     [SerializeField] private GameObject barraVida;
+    [SerializeField] AudioClip musica1;
+    [SerializeField]  AudioClip musica2;
 
     public Transform posicionFinal;
     public Cinemachine.CinemachineVirtualCamera camara;
@@ -28,6 +30,7 @@ public class Level1Manager : MonoBehaviour
         dialoguesManager.OnDialoguesFinished += EmpezarJuego;
         tiempoController.seAcaboElTiempo += JefeFinal;
         InicioDeNivel();
+        AudioManager.Instance.PlayMusic(musica1);
 
     }
 
@@ -74,6 +77,7 @@ public class Level1Manager : MonoBehaviour
         StartCoroutine(ActivarPanel());
         playerLvl1.CurarActivar();
         barraVida.SetActive(true);
+        AudioManager.Instance.PlayMusic(musica2);
     }
 
     IEnumerator ActivarPanel()

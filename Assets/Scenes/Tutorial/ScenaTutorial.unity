@@ -310,6 +310,7 @@ MonoBehaviour:
   enemigo1: {fileID: 762033332}
   enemigo2: {fileID: 1152766555}
   enemigo3: {fileID: 237918767}
+  musicaTutorial: {fileID: 8300000, guid: efbbecd61ac1f8443aa5cd89d3fb6846, type: 3}
 --- !u!4 &92773734
 Transform:
   m_ObjectHideFlags: 0
@@ -2874,6 +2875,37 @@ Transform:
   - {fileID: 762033334}
   - {fileID: 1152766554}
   - {fileID: 237918774}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &726903529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 726903530}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &726903530
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726903529}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.233034, y: -8.811709, z: -0.76087505}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &762033332 stripped
@@ -13662,3 +13694,4 @@ SceneRoots:
   - {fileID: 1438055221}
   - {fileID: 365282364}
   - {fileID: 681247905}
+  - {fileID: 726903530}
