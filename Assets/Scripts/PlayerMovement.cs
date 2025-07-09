@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
         } 
         if (currenHealthPlayer <= 0)
         {
-            Muerte("GameOver");
+            Muerte("GameOverTutorial");
         }
     }
 

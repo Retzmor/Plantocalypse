@@ -42,4 +42,10 @@ public class AudioManager : MonoBehaviour
     {
         soundEffects.volume = newVolume;
     }
+
+    public void MusicStop()
+    {
+        music.Stop();
+    }
+
 }

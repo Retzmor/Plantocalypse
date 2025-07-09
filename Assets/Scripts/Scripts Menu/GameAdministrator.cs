@@ -17,9 +17,6 @@ public class GameAdministrator : MonoBehaviour
     public LegacyGameState menuDespausa;
     private string currentStage = "Intro";
 
-
-    [SerializeField] private ScriptDialogue scriptDialogue;
-    [SerializeField] private CameraManager cameraManager;
     // Start is called before the first frame update
 
     private void Awake()
@@ -31,6 +28,7 @@ public class GameAdministrator : MonoBehaviour
         }
         else
         {
+            
             Destroy(gameObject);
             return;
         }
@@ -47,7 +45,13 @@ public class GameAdministrator : MonoBehaviour
         Time.timeScale = 1;
         currentStage = sceneName;
         Debug.Log("Escenario: " + currentStage);
-        
+    }
+
+    public void MainMenuPrincipal()
+    {
+        SceneManager.LoadScene("ScenaTutorial");
+        Time.timeScale = 1;
+        currentStage = "ScenaTutorial";
     }
 
     public void StageChange(string sceneName)
