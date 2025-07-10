@@ -32,14 +32,14 @@ public class AttackBoss : MonoBehaviour
 
     private void Update()
     {
-        if (bossEnemy.CurrentHealth == 60)
+        if (bossEnemy.CurrentHealth <= 234)
         {
             enemy1.SetActive(true);
             enemy2.SetActive(true);
             enemy3.SetActive(true);
         }
 
-        if (bossEnemy.CurrentHealth == 30)
+        if (bossEnemy.CurrentHealth <= 120)
         {
             enemy4.SetActive(true);
             enemy5.SetActive(true);

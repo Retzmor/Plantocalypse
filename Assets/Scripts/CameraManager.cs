@@ -7,6 +7,7 @@ public class CameraManager : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera camJugador;
     [SerializeField] private List<CinemachineVirtualCamera> camEnemigos;
+    [SerializeField] private PlayerMovement player;
 
     public static CameraManager Instance { get; private set; }
 
@@ -20,17 +21,20 @@ public class CameraManager : MonoBehaviour
     {
         if (indice < 0 || indice >= camEnemigos.Count) return;
         StartCoroutine(Transicion(camEnemigos[indice], duracion));
+        player.Rb.bodyType = RigidbodyType2D.Static;
     }
 
     private IEnumerator Transicion(CinemachineVirtualCamera camObjetivo, float duracion)
     {
         BajarPrioridades();
         camObjetivo.Priority = 12;
+        player.Rb.bodyType = RigidbodyType2D.Static;
 
         yield return new WaitForSeconds(duracion + 0.5f);
 
         BajarPrioridades();
         camJugador.Priority = 12;
+        player.Rb.bodyType = RigidbodyType2D.Dynamic;
     }
 
     private void BajarPrioridades()

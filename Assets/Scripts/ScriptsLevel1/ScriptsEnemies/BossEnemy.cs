@@ -7,7 +7,7 @@ public class BossEnemy : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator _animator;
-    [SerializeField] float health = 120;
+    [SerializeField] float health;
     [SerializeField] float currentHealth;
     [SerializeField] float speed;
     [SerializeField] GameObject limitTop;
@@ -55,7 +55,7 @@ public class BossEnemy : MonoBehaviour
             tiempoAcumulado += Time.deltaTime;
             if (tiempoAcumulado >= 1f)
             {
-                CurrentHealth += 2;
+                CurrentHealth += 10;
                 if (CurrentHealth > health)
                     CurrentHealth = health;
 
@@ -64,13 +64,13 @@ public class BossEnemy : MonoBehaviour
             }
         }
 
-        if (CurrentHealth == 100 && !mushroomCurrent1.activeSelf && !mushroomCurrent2.activeSelf)
+        if (CurrentHealth <= 600 && !mushroomCurrent1.activeSelf && !mushroomCurrent2.activeSelf)
         {
             _animator.SetTrigger("Mush");
             mushroomCurrent1.SetActive(true);
             mushroomCurrent2.SetActive(true);
         }
-        else if (CurrentHealth == 60 && !mushroomCurrent3.activeSelf && !mushroomCurrent4.activeSelf && !mushroomCurrent5.activeSelf)
+        else if (CurrentHealth <= 300 && !mushroomCurrent3.activeSelf && !mushroomCurrent4.activeSelf && !mushroomCurrent5.activeSelf)
         {
             _animator.SetTrigger("Mush");
             mushroomCurrent3.SetActive(true);

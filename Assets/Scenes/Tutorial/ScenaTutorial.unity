@@ -456,6 +456,7 @@ MonoBehaviour:
   - {fileID: 1913595963}
   - {fileID: 1179900554}
   - {fileID: 1644728840}
+  player: {fileID: 986143220}
 --- !u!4 &340460222
 Transform:
   m_ObjectHideFlags: 0
@@ -3136,7 +3137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &844301516
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12725,11 +12726,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2575736332314645672, guid: 6cc4f2f4e63c5384988dada884c2d130, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.745283
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2575736332314645672, guid: 6cc4f2f4e63c5384988dada884c2d130, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4278190270
+      value: 4278190080
       objectReference: {fileID: 0}
     - target: {fileID: 2596931574349431864, guid: 6cc4f2f4e63c5384988dada884c2d130, type: 3}
       propertyPath: m_Type

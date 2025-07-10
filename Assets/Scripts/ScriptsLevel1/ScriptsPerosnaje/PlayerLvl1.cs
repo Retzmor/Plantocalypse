@@ -29,13 +29,14 @@ public class PlayerLvl1 : MonoBehaviour
     public float Health { get => health; set => health = value; }
     public Rigidbody2D Rb { get => _rb; set => _rb = value; }
     public Animator Animator { get => _animator; set => _animator = value; }
+    public BarraVIda BarraVida { get => barraVida; set => barraVida = value; }
 
     void Start()
     {
-        Rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         currenHealthPlayer = Health;
-        barraVida.InicializarBarraVida(currenHealthPlayer);
+        BarraVida.InicializarBarraVida(currenHealthPlayer);
     }
 
     // Update is called once per frame
@@ -98,7 +99,7 @@ public class PlayerLvl1 : MonoBehaviour
     public void RecibirDaño(int damage)
     {
         currenHealthPlayer -= damage;
-        barraVida.CambiarVidaActual(currenHealthPlayer);
+        BarraVida.CambiarVidaActual(currenHealthPlayer);
         if (currenHealthPlayer != 100 && Time.time - coolDownPlayer >= enfriamiento2)
         {
             ControladorAudios.Intance.EjecutarAudioUnaVez(recibirDaño);
@@ -119,8 +120,12 @@ public class PlayerLvl1 : MonoBehaviour
 
     public void Curar(int cura)
     {
-        currenHealthPlayer += cura;
-        barraVida.CambiarVidaActual(currenHealthPlayer);
+        if(currenHealthPlayer < 120)
+        {
+            currenHealthPlayer += cura;
+            BarraVida.CambiarVidaActual(currenHealthPlayer);
+        }
+        
     }
 
     private void Muerte(string sceneName)

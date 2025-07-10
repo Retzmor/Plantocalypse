@@ -40,8 +40,8 @@ public class Level1Manager : MonoBehaviour
         {
             "Bienvenido.",
             "Es hora de que enfrentes a las plantas mutantes.",
-            "Debes resistir 5 minutos luchando.",
-            "En el mapa aparecerán monedas aleatorias.",
+            "Debes resistir 90 segundos luchando.",
+            "En el mapa aparecerán corazones aleatorios.",
             "Tómalas, te aumentarán la vida.",
             "¡Buena suerte!"
         };
@@ -78,6 +78,8 @@ public class Level1Manager : MonoBehaviour
         playerLvl1.CurarActivar();
         barraVida.SetActive(true);
         AudioManager.Instance.PlayMusic(musica2);
+        float vida = playerLvl1.currenHealthPlayer = 120;
+        playerLvl1.BarraVida.InicializarBarraVida(vida);
     }
 
     IEnumerator ActivarPanel()

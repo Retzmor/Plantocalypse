@@ -15,11 +15,11 @@ public class FollowHidraLvl1 : StateMachineBehaviour
         Vector3 rotacionActual = HidraEnemy.transform.localScale;
         float diferenciaX = HidraEnemy.TargetHidra.transform.position.x - HidraEnemy.transform.position.x;
 
-        if (diferenciaX < 0)
+        if (diferenciaX > 0)
         {
             HidraEnemy.transform.localScale = new Vector3(Mathf.Abs(rotacionActual.x), rotacionActual.y, rotacionActual.z);
         }
-        else if (diferenciaX > 0)
+        else if (diferenciaX < 0)
         {
             HidraEnemy.transform.localScale = new Vector3(-Mathf.Abs(rotacionActual.x), rotacionActual.y, rotacionActual.z);
         }
