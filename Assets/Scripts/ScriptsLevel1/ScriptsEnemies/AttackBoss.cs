@@ -92,7 +92,11 @@ public class AttackBoss : MonoBehaviour
     {
         bool dentroDelRango = Physics2D.OverlapCircle(zoneDamageRange.transform.position, damageRange, jugador);
         {
-            playerLvl1.RecibirDaño(damage);
+            if (dentroDelRango)
+            {
+                playerLvl1.RecibirDaño(damage);
+            }
+            
         }
     }
 
