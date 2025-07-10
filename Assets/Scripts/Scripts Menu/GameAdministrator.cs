@@ -49,9 +49,9 @@ public class GameAdministrator : MonoBehaviour
 
     public void MainMenuPrincipal()
     {
-        SceneManager.LoadScene("ScenaTutorial");
+        SceneManager.LoadScene("Intro");
         Time.timeScale = 1;
-        currentStage = "ScenaTutorial";
+        currentStage = "Intro";
     }
 
     public void StageChange(string sceneName)

@@ -9,7 +9,6 @@ public class CambiosDeEscena : MonoBehaviour
 
     public void EmpezarJuego()
     {
-        GameAdministrator.Instance.GameStart("MenuPrincipal");
-        Debug.Log("hola");    
-            }
+        GameAdministrator.Instance.GameStart("MenuPrincipal");   
+    }
 }

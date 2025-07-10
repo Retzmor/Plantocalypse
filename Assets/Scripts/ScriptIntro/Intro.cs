@@ -55,8 +55,8 @@ public class Intro : MonoBehaviour
         }
     }
 
-    public void CambiarEscena()
+    public void CambiarEscena(string name)
     {
-        SceneManager.LoadScene("ScenaTutorial"); 
+        GameAdministrator.Instance.GameStart(name);    
     }
 }
